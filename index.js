@@ -25,7 +25,7 @@ app.listen(app.get('port'), function() {
 });
 
 
-app.post('/test/', function(req, res) {
+app.get('/test/', function(req, res) {
 	var formData = {
 		apiKey: '6b300dd6-1896-4663-a5e8-121aabb9ae21',
 		projectId: '51df0cf05',
@@ -38,4 +38,5 @@ app.post('/test/', function(req, res) {
   }
   console.log('Upload successful!  Server responded with:', body);
 });
+	res.render('pages/demo')
 })
