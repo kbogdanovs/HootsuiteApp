@@ -24,18 +24,3 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-var formData = {
-        apiKey: '6b300dd6-1896-4663-a5e8-121aabb9ae21',
-        projectId: '51df0cf05',
-        file: [fs.createReadStream(__dirname + '/test.properties')],
-        fileURI: 'test.properties'
-    };
-app.get('/test/', function(req, res) {
-    request.post({url:'https://api.smartling.com/v1/file/upload', formData: formData}, function optionalCallback(err, httpResponse, body) {
-  if (err) {
-    return console.error('upload failed:', err);
-  }
-  console.log('Upload successful!  Server responded with:', body);
-})
-   res.render('pages/demo');
-});
