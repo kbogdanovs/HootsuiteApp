@@ -1,6 +1,6 @@
 $(document).ready(function() {
     hsp.init({
-        useTheme: true
+        useTheme: true,
         apiKey: "3jxdot922fwgkosgsccgows8s3icn2bnpna"
     });
 
