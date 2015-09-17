@@ -48,6 +48,7 @@ app.get('/tweet', urlParser, function (req, res) {
 	var body = req.body.tweetContent;
 	var jsonText = '{"text" : "' + body + '"}';
 	fs.writeFile('tweet1.json', jsonText);
+	var uploader = new Uploader;
 	uploader.upload('tweet1.json');
 	res.render ('pages/index')
 })
