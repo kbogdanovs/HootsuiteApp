@@ -5,6 +5,9 @@ var request = require('request');
 var mustache = require('mustache');
 var Uploader = require('./upload')
 var pg = require('pg');
+var bodyParser = require('body-parser')
+
+var jsonParser = bodyParser.json
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -22,7 +25,6 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 app.use("/asset", express.static(__dirname + '/asset'));
-app.use(express.bodyParser());
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
@@ -42,7 +44,8 @@ app.get('/upload', function (req, res) {
     res.render('pages/uploadresult');
 });
 
-app.post('/tweet', function (req, res) {
+app.post('/tweet', jsonParser function (req, res) {
+
 	var body = req.body.tweetContent;
 	var jsonText = '{"text" : "' + body + '"}';
 	fs.writeFile('tweet1.json', jsonText);
