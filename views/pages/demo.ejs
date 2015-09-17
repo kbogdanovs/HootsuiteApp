@@ -21,19 +21,10 @@
                     <li class="hs_topBarControlsBtn" data-dropdown="WriteMessage" title="Write Message">
                         <span class="icon-app-dir x-compose"></span>
                     </li>
-                    <li class="hs_topBarControlsBtn" data-dropdown="Search" title="Search">
-                        <span class="icon-app-dir x-search"></span>
-                    </li>
-                    <li class="hs_topBarControlsBtn" data-dropdown="Settings" title="Settings">
-                        <span class="icon-app-dir x-settings"></span>
-                    </li>
-                    <li class="hs_topBarControlsBtn" data-dropdown="MenuList" title="More">
-                        <span class="icon-app-dir x-ellipsis"></span>
-                    </li>
                 </ul>
 
                 <!--Left-Side Title-->
-                <h1 class="hs_topBarTitle">Demo App</h1>
+                <h1 class="hs_topBarTitle">Compose</h1>
             </div>
 
             <!--Drop Downs-->
@@ -46,28 +37,6 @@
                 </div>
             </div>
 
-            <!--Search-->
-            <div class="hs_topBarDropdown hs_dropdownSearch" data-dropdown="Search">
-                <button class="hs_btnCtaSml hs_btnTypeSubmit _user_search">Search</button>
-                <div class="hs_searchWrapper">
-                    <label class="hs_isVisuallyHidden" for="hs_searchInputExample">Search:</label>
-                    <input id="hs_searchInputExample" class="_user_text" type="text" placeholder="e.g. Hootsuite">
-                </div>
-            </div>
-
-            <div class="hs_topBarDropdown hs_dropdownSettings" data-dropdown="Settings">
-                <li class="hs_dropdownMenuListItem"><a href="#">Setting 1</a></li>
-                <li class="hs_dropdownMenuListItem"><a href="#">Setting 2</a></li>
-                <li class="hs_dropdownMenuListItem"><a href="#">Setting 3</a></li>
-            </div>
-
-            <!--Menu List-->
-            <ul class="hs_topBarDropdown hs_dropdownMenuList" data-dropdown="MenuList">
-                <li class="hs_dropdownMenuListItem"><a href="#">Drop Down Link 1</a></li>
-                <li class="hs_dropdownMenuListItem"><a href="#">Drop Down Link 2</a></li>
-                <li class="hs_dropdownMenuListItem"><a href="#">Drop Down Link 3</a></li>
-            </ul>
-        </div>
 
         <!--Message Stream-->
         <div class="hs_message">
@@ -82,25 +51,12 @@
 
                 <div class="hs_contentText">
                 <p>
-                    Let's start by telling the Dashboard to do some stuff for us:<br />
-                    <a href="#" class='_retweet'>reweet</a>&nbsp;&nbsp;
-                    <a href="#" class='_showStatusMessage'>showStatusMessage</a>&nbsp;&nbsp;
-                    <a href="#" class='_clearStatusMessage'>clearStatusMessage</a>&nbsp;&nbsp;
-                    <a href="#" class='_showFollowDialog'>showFollowDialog</a>&nbsp;&nbsp;
-                    <a href="#" class='_customUserInfo'>customUserInfo</a>&nbsp;&nbsp;
-                    <a href="#" class='_showImagePreview'>showImagePreview</a>&nbsp;&nbsp;
-                    <a href="#" class='_updatePlacementSubtitle'>updatePlacementSubtitle</a>&nbsp;&nbsp;
-                    <a href="#" class='_showCustomPopup'>showCustomPopup</a>&nbsp;&nbsp;
-                    <br />
-                    <!--Optional Image-->
-                    <div class="hs_mediaGallery">
-                        <a class="hs_attachedMedia" href="#">
-                            <!--Single images are cropped to a 16:9 ratio-->
-                            <img src="./asset/holiday-owl.jpg" alt="Sample Image" class="hs_isProcessed _showImagePreview">
-                        </a>
-                    </div>
-                    <br />
-                    Click <a href="https://hootsuite.s3.amazonaws.com/jsapi/1-0/app_stream_template.html" target="_blank">this link</a> to explore more about our free CSS theme for apps
+                    <form action="tweet" method "get">
+                        Enter text<br />
+                        <input type="text" name="tweetContent"/>
+                        <input type="submit" />
+                    </form>
+                    
                 </p>
             </div>
           </div>
