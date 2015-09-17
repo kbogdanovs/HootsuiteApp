@@ -7,7 +7,7 @@ var Uploader = require('./upload')
 var pg = require('pg');
 var bodyParser = require('body-parser')
 
-var jsonParser = bodyParser.json
+var urlParser = bodyParser.urlencoded({extended: false})
 
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -44,7 +44,7 @@ app.get('/upload', function (req, res) {
     res.render('pages/uploadresult');
 });
 
-app.post('/tweet', jsonParser, function (req, res) {
+app.get('/tweet', urlParser, function (req, res) {
 	var body = req.body.tweetContent;
 	var jsonText = '{"text" : "' + body + '"}';
 	fs.writeFile('tweet1.json', jsonText);
