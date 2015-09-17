@@ -44,7 +44,7 @@ app.get('/upload', function (req, res) {
     res.render('pages/uploadresult');
 });
 
-app.get('/tweet', jsonParser, function (req, res) {
+app.post('/tweet', jsonParser, function (req, res) {
 	var body = req.body.tweetContent;
 	var jsonText = '{"text" : "' + body + '"}';
 	fs.writeFile('tweet1.json', jsonText);
