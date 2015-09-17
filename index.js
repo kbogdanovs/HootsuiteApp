@@ -39,7 +39,8 @@ app.post('/', function (req, res) {
     var queryObject = url.parse(req.url,true).query;
     var userId = queryObject.uid
     var userInfo = {
-    	id: userId
+    	id: userId,
+    	name: 'Kale'
     }
     res.render('pages/demo', userInfo)
 });
