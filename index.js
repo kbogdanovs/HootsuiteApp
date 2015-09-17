@@ -47,8 +47,7 @@ app.get('/upload', function (req, res) {
 
 app.get('/tweet', function (req, res) {
 	var queryObject = url.parse(req.url,true).query;
-	var body = queryObject[tweetContent]
-	var jsonText = '{"text" : "' + body + '"}';
+	var jsonText = '{"text" : "' + queryObject.tweetContent + '"}';
 	fs.writeFile('tweet1.json', jsonText);
 	var uploader = new Uploader;
 	uploader.upload('tweet1.json');
