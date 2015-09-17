@@ -6,6 +6,7 @@ var mustache = require('mustache');
 var Uploader = require('./upload')
 var pg = require('pg');
 var bodyParser = require('body-parser')
+var url = require('url')
 
 
 
@@ -45,7 +46,8 @@ app.get('/upload', function (req, res) {
 });
 
 app.get('/tweet', function (req, res) {
-	var body = req.tweetContent;
+	var queryObject = url.parse(req.url,true).query;
+	var body = queryObject[tweetContent]
 	var jsonText = '{"text" : "' + body + '"}';
 	fs.writeFile('tweet1.json', jsonText);
 	var uploader = new Uploader;
