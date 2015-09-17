@@ -36,7 +36,12 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function (req, res) {
-    res.render('pages/demo')
+    var queryObject = url.parse(req.url,true).query;
+    var userId = queryObject.uid
+    var userInfo = {
+    	id: userId
+    }
+    res.render('pages/demo', userInfo)
 });
 
 app.get('/upload', function (req, res) {
@@ -48,10 +53,12 @@ app.get('/upload', function (req, res) {
 app.get('/tweet', function (req, res) {
 	var queryObject = url.parse(req.url,true).query;
 	var jsonText = '{"text" : "' + queryObject.tweetContent + '"}';
+	var x = 0
+	filename = ''
 	fs.writeFile('tweet1.json', jsonText);
 	var uploader = new Uploader;
 	uploader.upload('tweet1.json');
-	res.render ('pages/demo')
+	res.redirect('/')
 })
 
 app.listen(app.get('port'), function() {
