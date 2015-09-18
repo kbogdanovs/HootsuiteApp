@@ -13,7 +13,7 @@ var curlOptions = {
 	fileUri: file,
 	locale: locale,
 	apiKey: 'd39e8d85-3d7b-46f5-ad79-30edf0ccf7b3',
-	projectId: 'c5c7a69ed'
+	projectId: 'c5c7a69ed',
 	retrievalType: 'published'
 }
 
