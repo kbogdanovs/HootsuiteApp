@@ -65,7 +65,7 @@ app.post('/', function (req, res) {
     				]
     			}
     		];
-    res.render('pages/demo', { userId: userInfo.userId, tweets: tweets })
+    res.render('pages/demo', { userId: 1235, tweets: tweets })
 });
 
 app.get('/upload', function (req, res) {
@@ -89,7 +89,7 @@ app.get('/tweet', function (request, response) {
        { console.log(result)}
     });
   });
-   var getfilename = "SELECT * FROM usertweets WHERE sourceText = '" + sourceText + "';"
+   var getfilename = "SELECT * FROM usertweets WHERE sourceText = '" + sourceText.tweetContent + "';"
    console.log(getfilename)
    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query(getfilename, function(err, result) {
@@ -97,7 +97,7 @@ app.get('/tweet', function (request, response) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
-       { console.log('your tweet was ' + result.rows) }
+       { console.log('your tweet was ' + result.sourceText) }
     });
 
   });
