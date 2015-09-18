@@ -83,7 +83,7 @@
         </div>
 
         <% tweet.translations.forEach(function (translation) { %>
-            <% if(translation.text !== null){ %>
+            <% if(translation.text === ''){ %>
                 <div class="hs_message">
                     <div class="hs_avatar">
                         <img class="hs_avatarImage" src="./asset/avatar.png" alt="Avatar">
