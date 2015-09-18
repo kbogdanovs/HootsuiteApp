@@ -32,6 +32,10 @@ app.use("/asset", express.static(__dirname + '/asset'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+app.get('/', function (req, res) {
+  res.render('pages/demo');
+});
+
 app.post('/', function (req, res) {
     var queryObject = url.parse(req.url,true).query;
     var userId = queryObject.uid
@@ -56,8 +60,7 @@ app.get('/tweet', function (req, res) {
 	fs.writeFile('tweet1.json', jsonText);
 	var uploader = new Uploader;
 	uploader.upload('tweet1.json');
-	app.post('/')
-
+	res.redirect()
 })
 
 app.listen(app.get('port'), function() {
