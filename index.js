@@ -52,7 +52,7 @@ app.get('/', function (req, res) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else { 
-      	var tweets = result.rows.sort
+      	var tweets = result.rows
       	console.log(tweets)
       	res.render('pages/demo', { userInfo: userInfo, tweets: tweets })
       }
