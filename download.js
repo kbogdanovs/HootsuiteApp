@@ -37,8 +37,8 @@ if(error !== null)
 }
 else
 {
-	var dbDownload = "INSERT INTO usertweets (" + hslocale + ") VALUES (" + tweetText + ") WHERE tweetid = " + tweetid + ";"
-	console.log(dbDownload)
+	var dbDownload = "UPDATE usertweets set" + hslocale + " = '" + tweetText + "'' WHERE tweetid = " + tweetid + ";"
+	console.log(dbDownloadd)
 	  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 	    client.query(dbDownload, function(err, result) {
 	      done();
