@@ -61,8 +61,8 @@ app.post('/', function (req, res) {
     			sourceLocale: 'en-EN',
     			sourceText: 'Here is another tweet',
     			translations: [
-    				['fr-FR', ''],
-    				['de-DE', 'Here is another tweet auf Deutsch']
+    				['fr-FR', '', false, false],
+    				['de-DE', 'Here is another tweet auf Deutsch', false, false]
     				]
     			}
     		];
@@ -87,7 +87,7 @@ app.get('/tweet', function (request, response) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
-       { console.log('Success') }
+       { console.log(result) }
     });
 
   });
