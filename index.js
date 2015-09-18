@@ -51,7 +51,7 @@ app.post('/', function (req, res) {
     			sourceText: 'Here is a tweet',
     			translations: [
     				['fr-FR', 'Here is a tweet en Francais'],
-    				{'de-DE', '']
+    				['de-DE', '']
     				]
     			},
     			{
