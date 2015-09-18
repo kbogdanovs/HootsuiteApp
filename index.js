@@ -127,7 +127,6 @@ app.get('/tweet', function (request, response) {
       	fs.writeFile(filename, jsonText);
       	var uploader = new Uploader;
       	uploader.upload(filename)
-      	app.request({method: 'POST', path: '/'})
       }
     });
     
