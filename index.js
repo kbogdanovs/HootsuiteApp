@@ -4,6 +4,7 @@ var fs = require('fs');
 var request = require('request');
 var mustache = require('mustache');
 var Uploader = require('./upload')
+var Refresher = require('./refresh')
 var pg = require('pg');
 var bodyParser = require('body-parser')
 var url = require('url')
@@ -30,7 +31,10 @@ app.get('/db', function (request, response) {
   });
 })
 
-
+app.get('/', function (req, res) {
+	var refresher = new Refresher;
+	refresher.refresh();
+});
 
 app.set('port', (process.env.PORT || 5000));
 
