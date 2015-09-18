@@ -78,12 +78,13 @@ app.post('/', function (req, res) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else { 
-      	tweets = result.rows
+      	var tweets = result.rows
       	console.log(tweets)
+      	res.render('pages/demo', { userInfo: userInfo, tweets: tweets })
       }
     });
    });
-    res.render('pages/demo', { userInfo: userInfo, tweets: tweets })
+    
 });
 
 
