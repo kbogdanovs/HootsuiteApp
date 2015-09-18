@@ -43,7 +43,6 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function (req, res) {
-    var queryObject = url.parse(req.url,true).query;
     var tweets = [
     			{
     			id: 'tweet1',
@@ -66,7 +65,7 @@ app.post('/', function (req, res) {
     				]
     			}
     		];
-    res.render('pages/demo', { userInfo: userInfo, tweets: tweets })
+    res.render('pages/demo', { userId: userInfo.userId, tweets: tweets })
 });
 
 app.get('/upload', function (req, res) {
@@ -91,6 +90,7 @@ app.get('/tweet', function (request, response) {
     });
   });
    var getfilename = "SELECT * FROM usertweets WHERE sourceText = '" + sourceText + "';"
+   console.log(getfilename)
    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query(getfilename, function(err, result) {
       done();
