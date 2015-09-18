@@ -44,7 +44,7 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
-   var getTweets = "SELECT * FROM usertweets WHERE userid = '" + userInfo.userId + "';"
+   var getTweets = "SELECT * FROM usertweets WHERE userid = '" + userInfo.userId + "' ORDER BY created DESC;"
    console.log(getTweets)
    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query(getTweets, function(err, result) {
@@ -52,7 +52,7 @@ app.get('/', function (req, res) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else { 
-      	var tweets = result.rows
+      	var tweets = result.rows.sort
       	console.log(tweets)
       	res.render('pages/demo', { userInfo: userInfo, tweets: tweets })
       }
@@ -61,7 +61,7 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function (req, res) {
-   var getTweets = "SELECT * FROM usertweets WHERE userid = '" + userInfo.userId + "';"
+   var getTweets = "SELECT * FROM usertweets WHERE userid = '" + userInfo.userId + "' ORDER BY created DESC;"
    console.log(getTweets)
    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query(getTweets, function(err, result) {
