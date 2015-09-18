@@ -63,10 +63,46 @@
         </div>
 
         <!--Basic Message-->
-        <% tweets.forEach(function(tweet) { %>
-            <% include ../partials/tweetdiv.ejs %>
-        <% }); %>
-    
+        
+<% tweets.forEach(function (tweet) { %>
+    <div class="multilingualtweet">   
+        <div class="hs_message">
+            <div class="hs_avatar">
+                <img class="hs_avatarImage" src="./asset/avatar.png" alt="Avatar">
+                <a href="#" class="hs_avatarLink" title="Username"></a>
+            </div>
+
+            <div class="hs_content">
+                <a href="#" class="hs_userName" title="Username">Hootsuite</a>
+                <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
+
+                <div class="hs_contentText">
+                    <p> <%= tweet.source.text %> </p>
+                </div>
+            </div>
+        </div>
+
+        <% translations.forEach(function (translation) { %>
+            <div class="hs_message">
+                <div class="hs_avatar">
+                    <img class="hs_avatarImage" src="./asset/avatar.png" alt="Avatar">
+                    <a href="#" class="hs_avatarLink" title="Username"></a>
+                </div>
+
+                <div class="hs_content">
+                    <a href="#" class="hs_userName" title="Username">Hootsuite</a>
+                    <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
+
+                    <div class="hs_contentText">
+                        <p> <%= translation.text %> </p>
+                    </div>
+                </div>
+            </div> 
+      <%  }); %>
+    </div>
+<% }); %>
+
+            
 
 
 
