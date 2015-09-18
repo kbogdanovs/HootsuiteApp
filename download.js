@@ -25,7 +25,7 @@ var command = mustache.render('curl -d "apiKey={{{apiKey}}}&fileUri={{{fileUri}}
 child = exec(command, function(error, stdout, stderr){
 
 var test = JSON.parse(stdout)
-console.log(test["tweetText"])
+console.log('its the test variable' + test["tweetText"])
 
 if(error !== null)
 {
@@ -35,7 +35,7 @@ else
 {
 	fs.readFile(tweetid, function (err, data) {
   		if (err) throw err;
-  		console.log(data);
+  		console.log('its the data stream' + data);
 		});
 	var dbDownload = "INSERT INTO usertweets (" + locale + ") VALUES (" +translation.tweetText + " WHERE tweetid = '" + tweetid + "';"
 
