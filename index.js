@@ -64,7 +64,7 @@ app.post('/', function (req, res) {
     			}
     		}
     	};
-    res.render('pages/demo', { userInfo: userInfo, userTweets: userTweets })
+    res.render('pages/demo', { userInfo: userInfo, tweets: userTweets.tweets, translations: UserTweets.tweets.translations })
 });
 
 app.get('/upload', function (req, res) {
