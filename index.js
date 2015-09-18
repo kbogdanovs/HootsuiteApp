@@ -8,7 +8,7 @@ var pg = require('pg');
 var bodyParser = require('body-parser')
 var url = require('url')
 var ejs = require('ejs')
-userInfo = {
+var userInfo = {
 	userId: 12698567,
 	firstName: 'Kale'
 };
@@ -97,7 +97,7 @@ app.get('/tweet', function (request, response) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
-       { console.log(result.tweetId) }
+       { console.log('your tweet was ' + result.rows) }
     });
 
   });
