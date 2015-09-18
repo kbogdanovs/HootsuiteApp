@@ -45,8 +45,8 @@ app.post('/', function (req, res) {
     }
     var userTweets = {
     	id: 1234,
-    	tweets: {
-    		tweet2: {
+    	tweets: [
+    		tweet1: {
     			time : 'Lets work this out later',
     			source: {locale: 'en-EN', text: 'Here is a tweet in English'},
     			translations: [
@@ -62,7 +62,7 @@ app.post('/', function (req, res) {
     				{locale: 'de-DE', text: ''}		
     				]
     			}
-    		}
+    		]
     	};
     res.render('pages/demo', { userInfo: userInfo, userTweets: userTweets })
 });
