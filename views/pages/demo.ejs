@@ -96,7 +96,13 @@
                         <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
 
                         <div class="hs_contentText">
-                            <p> <% if(tweet['fr-FR']) { {{{tweet['fr-FR']}}} } else { No translation available at this time } %> </p>
+                            <p> 
+                                <% if(tweet['fr-FR'] !== null) { %>
+                                    {{{ tweet['fr-FR'] }}} 
+                                <% } else { %>
+                                    No translation available at this time 
+                                    <% } %> 
+                            </p>
                         </div>
                     </div>
                 </div>
