@@ -33,7 +33,7 @@ if(error !== null)
 }
 else
 {
-	fs.readFile('/etc/passwd', function (err, data) {
+	fs.readFile(tweetid, function (err, data) {
   		if (err) throw err;
   		var translation = JSON.parse(data);
   		console.log(translation);
