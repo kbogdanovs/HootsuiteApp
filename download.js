@@ -24,8 +24,8 @@ var command = mustache.render('curl -d "apiKey={{{apiKey}}}&fileUri={{{fileUri}}
 
 child = exec(command, function(error, stdout, stderr){
 
-console.log('stdout: ' + stdout);
-console.log(stdout["tweetText"])
+var test = JSON.parse(stdout)
+console.log(test.tweetText)
 
 if(error !== null)
 {
