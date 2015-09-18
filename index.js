@@ -87,7 +87,16 @@ app.get('/tweet', function (request, response) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
-       { console.log(result) }
+       { console.log(result)}
+    });
+    var getfilename = "SELECT * FROM usertweets WHERE sourceText = '" + sourceText + "';"
+      pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query(getfilename, function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { console.log(result.tweetId) }
     });
 
   });
