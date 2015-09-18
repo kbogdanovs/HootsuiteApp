@@ -31,10 +31,7 @@ app.get('/db', function (request, response) {
   });
 })
 
-app.get('/', function (req, res) {
-	var refresher = new Refresher;
-	refresher.refresh();
-});
+
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -46,6 +43,22 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 
+app.get('/', function (req, res) {
+   var getTweets = "SELECT * FROM usertweets WHERE userid = '" + userInfo.userId + "';"
+   console.log(getTweets)
+   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query(getTweets, function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else { 
+      	var tweets = result.rows
+      	console.log(tweets)
+      	res.render('pages/demo', { userInfo: userInfo, tweets: tweets })
+      }
+    });
+   });    
+});
 
 app.post('/', function (req, res) {
    var getTweets = "SELECT * FROM usertweets WHERE userid = '" + userInfo.userId + "';"
@@ -61,8 +74,7 @@ app.post('/', function (req, res) {
       	res.render('pages/demo', { userInfo: userInfo, tweets: tweets })
       }
     });
-   });
-    
+   });    
 });
 
 
