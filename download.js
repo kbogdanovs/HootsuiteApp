@@ -24,8 +24,9 @@ var command = mustache.render('curl -d "apiKey={{{apiKey}}}&fileUri={{{fileUri}}
 
 child = exec(command, function(error, stdout, stderr){
 
-var test = JSON.parse(stdout)
-console.log('its the test variable' + test["tweetText"])
+var parsed = JSON.parse(stdout)
+tweetText = parsed["tweetText"]
+console.log('its the test variable ' + t["tweetText"])
 
 if(error !== null)
 {
@@ -33,11 +34,7 @@ if(error !== null)
 }
 else
 {
-	fs.readFile(tweetid, function (err, data) {
-  		if (err) throw err;
-  		console.log('its the data stream' + data);
-		});
-	var dbDownload = "INSERT INTO usertweets (" + locale + ") VALUES (" +translation.tweetText + " WHERE tweetid = '" + tweetid + "';"
+	var dbDownload = "INSERT INTO usertweets (" + locale + ") VALUES (" + tweetText + " WHERE tweetid = '" + tweetid + "';"
 
 	  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 	    client.query(dbDownload, function(err, result) {
