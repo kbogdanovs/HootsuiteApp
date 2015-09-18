@@ -43,7 +43,27 @@ app.post('/', function (req, res) {
     	id: 1234,
     	name: 'Kale'
     }
-    res.render('pages/demo', { userInfo: userInfo })
+    var userTweets = {
+    	id: 1234
+    	tweets: {
+    		tweet2: {
+    			time : 'Let''s work this out later',
+    			source: {locale: 'en-EN', text: 'Here is a tweet in English'},
+    			translations: {
+    				{locale: 'fr-FR', text: 'Here is another tweet en Francais'},
+    				{locale: 'de-DE', text: ''}
+    			}
+    		}
+    		tweet2: {
+    			time : 'Let''s work this out later',
+    			source: {locale: 'en-EN', text: 'Here is a tweet in English'},
+    			translations: {
+    				{locale: 'fr-FR', text: 'Here is another tweet en Francais'},
+    				{locale: 'de-DE', text: ''}		
+    			}
+    		}
+    	}
+    res.render('pages/demo', { userInfo: userInfo, tweets: tweets })
 });
 
 app.get('/upload', function (req, res) {
