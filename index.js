@@ -47,8 +47,8 @@ app.post('/', function (req, res) {
     			{
     			id: 'tweet1',
     			time : 'Lets work this out later',
-    			sourceLocale: 'en-EN'
-    			sourceText: 'Here is a tweet'
+    			sourceLocale: 'en-EN',
+    			sourceText: 'Here is a tweet',
     			translations: [
     				{locale: 'fr-FR', text: 'Here is a tweet en Francais'},
     				{locale: 'de-DE', text: ''}
@@ -57,8 +57,8 @@ app.post('/', function (req, res) {
     			{
     			id: 'tweet2',
     			time : 'Lets work this out later',
-    			sourceLocale: 'en-EN'
-    			sourceText: 'Here is another tweet'
+    			sourceLocale: 'en-EN',
+    			sourceText: 'Here is another tweet',
     			translations: [
     				{locale: 'fr-FR', text: ''},
     				{locale: 'de-DE', text: 'Here is another tweet auf Deutsch'}
