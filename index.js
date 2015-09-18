@@ -5,6 +5,7 @@ var request = require('request');
 var mustache = require('mustache');
 var Uploader = require('./upload')
 var Refresher = require('./refresh')
+var Downloader = require('./download')
 var pg = require('pg');
 var bodyParser = require('body-parser')
 var url = require('url')
@@ -117,7 +118,7 @@ app.get('/translated', function (request, response) {
 	var urlData = url.parse(request.url,true).query;
 	var locale = urlData.locale;
 	var fileUri = urlData.fileUri;
-	var downloader = new downloader;
+	var downloader = new Downloader;
 	downloader.download(fileUri, locale);
 	response.redirect('/');
 })
