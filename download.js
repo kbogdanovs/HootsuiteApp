@@ -42,7 +42,7 @@ else
 	    client.query(dbDownload, function(err, result) {
 	      done();
 	      if (err)
-	       { console.error(err); response.send("Error " + err); }
+	       { console.error(err); console.log("Error " + err); }
 	      else
 	       { console.log(result)}
 	    });
