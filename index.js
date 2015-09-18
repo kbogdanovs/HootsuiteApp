@@ -97,7 +97,7 @@ app.get('/tweet', function (request, response) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
-       { console.log('your tweet was ' + result.sourceText) }
+       { console.log(result.rows) }
     });
 
   });
