@@ -96,12 +96,17 @@ app.get('/tweet', function (request, response) {
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
-      else
-       { console.log(result.rows) }
+      else { 
+      	console.log(result.rows) 
+      	var filename = result.tweetid;
+      	var jsonText = '{"text" : "' + result.sourcetext + '"}';
+      	fs.writefile(filename, jsonText);
+      	var uploader = new Uploader;
+      	uploader.upload(filename)
+      }
     });
-
+    response.redirect('/')
   });
-  response.redirect('/')
  });
 
 app.get('/tweetupload', function (request, response) {
