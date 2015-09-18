@@ -8,6 +8,7 @@ var pg = require('pg');
 var bodyParser = require('body-parser')
 var url = require('url')
 var ejs = require('ejs')
+var http = require('http')
 var userInfo = {
 	userId: 12698567,
 	firstName: 'Kale'
@@ -39,7 +40,29 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
-  res.render('pages/demo');
+    var tweets = [
+    			{
+    			id: 'tweet1',
+    			time : 'Lets work this out later',
+    			sourceLocale: 'en-EN',
+    			sourceText: 'Here is a tweet',
+    			translations: [
+    				['fr-FR', 'Here is a tweet en Francais'],
+    				['de-DE', '']
+    				]
+    			},
+    			{
+    			id: 'tweet2',
+    			time : 'Lets work this out later',
+    			sourceLocale: 'en-EN',
+    			sourceText: 'Here is another tweet',
+    			translations: [
+    				['fr-FR', '', false, false],
+    				['de-DE', 'Here is another tweet auf Deutsch', false, false]
+    				]
+    			}
+    		];
+    res.render('pages/demo', { userId: 1235, tweets: tweets })
 });
 
 app.post('/', function (req, res) {
@@ -104,7 +127,7 @@ app.get('/tweet', function (request, response) {
       	fs.writeFile(filename, jsonText);
       	var uploader = new Uploader;
       	uploader.upload(filename)
-      	http.request({method: 'POST', path: '/'})
+      	app.request({method: 'POST', path: '/'})
       }
     });
     
