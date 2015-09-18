@@ -100,7 +100,7 @@ app.get('/tweet', function (request, response) {
       	console.log(result.rows) 
       	var filename = result.tweetid;
       	var jsonText = '{"text" : "' + result.sourcetext + '"}';
-      	fs.writefile(filename, jsonText);
+      	fs.writeFile(filename, jsonText);
       	var uploader = new Uploader;
       	uploader.upload(filename)
       }
