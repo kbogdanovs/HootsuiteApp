@@ -83,7 +83,7 @@
         </div>
 
         <% tweet.translations.forEach(function (translation) { %>
-            <% if(translation.text === ''){ %>
+            <% if(translation[1] !== ''){ %>
                 <div class="hs_message">
                     <div class="hs_avatar">
                         <img class="hs_avatarImage" src="./asset/avatar.png" alt="Avatar">
@@ -95,7 +95,7 @@
                         <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
 
                         <div class="hs_contentText">
-                            <p> <%= translation.text %> </p>
+                            <p> <%= translation[1] %> </p>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                         <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
 
                         <div class="hs_contentText">
-                            <p> <%= translation.locale %> has not bee translated yet. </p>
+                            <p> <%= translation[0] %> has not bee translated yet. </p>
                         </div>
                     </div>
                 </div>

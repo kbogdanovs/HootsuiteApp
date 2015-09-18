@@ -50,8 +50,8 @@ app.post('/', function (req, res) {
     			sourceLocale: 'en-EN',
     			sourceText: 'Here is a tweet',
     			translations: [
-    				{locale: 'fr-FR', text: 'Here is a tweet en Francais'},
-    				{locale: 'de-DE', text: ''}
+    				['fr-FR', 'Here is a tweet en Francais'],
+    				{'de-DE', '']
     				]
     			},
     			{
@@ -60,8 +60,8 @@ app.post('/', function (req, res) {
     			sourceLocale: 'en-EN',
     			sourceText: 'Here is another tweet',
     			translations: [
-    				{locale: 'fr-FR', text: ''},
-    				{locale: 'de-DE', text: 'Here is another tweet auf Deutsch'}
+    				['fr-FR', ''],
+    				['de-DE', 'Here is another tweet auf Deutsch']
     				]
     			}
     		];
