@@ -1,7 +1,9 @@
 var Downloader = function() {
 
 };
+
 var mustache = require('mustache');
+var fs = require('fs');
 
 Downloader.prototype.download = function(file, locale) {
 
