@@ -44,7 +44,6 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) {
     var queryObject = url.parse(req.url,true).query;
-    var tweets = get
     var tweets = [
     			{
     			id: 'tweet1',
