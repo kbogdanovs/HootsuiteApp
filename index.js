@@ -8,7 +8,11 @@ var pg = require('pg');
 var bodyParser = require('body-parser')
 var url = require('url')
 var ejs = require('ejs')
-userId = 12698567
+userInfo = {
+	userId: 12698567,
+	firstName: 'Kale'
+};
+
 
 
 app.get('/db', function (request, response) {
@@ -79,7 +83,7 @@ app.get('/upload', function (req, res) {
 
 app.get('/tweet', function (request, response) {
   var sourceText = url.parse(request.url,true).query
-  var dbQuery = "INSERT INTO usertweets (userId, sourceLocale, sourceText) VALUES (" + userId + ", 'en-EN', '" + sourceText.tweetContent + "');"
+  var dbQuery = "INSERT INTO usertweets (userId, sourceLocale, sourceText) VALUES (" + userInfo.userId + ", 'en-EN', '" + sourceText.tweetContent + "');"
   console.log(dbQuery);
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query(dbQuery, function(err, result) {
