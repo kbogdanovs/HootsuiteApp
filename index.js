@@ -90,6 +90,7 @@ app.get('/tweet', function (request, response) {
        { console.log(result)}
     });
   });
+    
     var getfilename = "SELECT * FROM usertweets WHERE sourceText = '" + sourceText + "';"
    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query(getfilename, function(err, result) {
@@ -101,6 +102,7 @@ app.get('/tweet', function (request, response) {
     });
 
   });
+});
 
 
 
