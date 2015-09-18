@@ -79,7 +79,7 @@ app.get('/upload', function (req, res) {
 
 app.get('/tweet', function (request, response) {
   var sourceText = url.parse(request.url,true).query
-  var dbQuery = "INSERT INTO usertweets (userId, sourceLocale, sourceText) VALUES (" + userInfo.userId + ", 'en-EN', '" + sourceText.tweetContent + "')"
+  var dbQuery = "INSERT INTO usertweets (userId, sourceLocale, sourceText) VALsadfasdfUES (" + userInfo.userId + ", 'en-EN', '" + sourceText.tweetContent + "')"
   console.log(dbQuery);
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query(dbQuery, function(err, result) {
