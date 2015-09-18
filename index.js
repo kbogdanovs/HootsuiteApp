@@ -87,7 +87,7 @@ app.get('/tweet', function (request, response) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else
-       { response.redirect('/db') ); }
+       { response.redirect('/db'); }
     });
   });
 })
