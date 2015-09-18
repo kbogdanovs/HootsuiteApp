@@ -26,7 +26,7 @@ child = exec(command, function(error, stdout, stderr){
 
 var parsed = JSON.parse(stdout)
 tweetText = parsed["tweetText"]
-console.log('its the test variable ' + t["tweetText"])
+console.log('its the test variable ' + tweetText)
 
 if(error !== null)
 {
