@@ -76,11 +76,7 @@ app.get('/upload', function (req, res) {
     res.render('pages/uploadresult');
 });
 
-app.get('/tweet', function (req, res) {
-	var sourceText = url.parse(req.url,true).query;
-	
-	res.redirect('/')
-});
+
 
 app.get('/tweet', function (request, response) {
   var sourceText = url.parse(req.url,true).query
