@@ -6,7 +6,7 @@ var http = require('http')
 Refresher.prototype.refresh = function() {
 
 var options = {
-    host: 'https://hsnodesmartlingsocial.herokuapp.com',
+    host: 'hsnodesmartlingsocial.herokuapp.com',
     path: '/',
     method: 'POST'
 };
