@@ -43,7 +43,8 @@ app.post('/', function (req, res) {
     	id: 1234,
     	name: 'Kale'
     }
-    res.render('pages/demo', userInfo)
+    var tweets = getTweets()
+    res.render('pages/demo', {userInfo})
 });
 
 app.get('/upload', function (req, res) {
