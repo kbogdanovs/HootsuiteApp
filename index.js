@@ -44,7 +44,7 @@ app.post('/', function (req, res) {
     	name: 'Kale'
     }
     var userTweets = {
-    	id: 1234
+    	id: 1234,
     	tweets: {
     		tweet2: {
     			time : 'Let''s work this out later',
