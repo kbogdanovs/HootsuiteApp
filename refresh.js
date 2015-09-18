@@ -2,7 +2,7 @@
 var Refresher = function () {
 
 };
-
+var http = require('http')
 Refresher.prototype.refresh = function() {
 
 var options = {
