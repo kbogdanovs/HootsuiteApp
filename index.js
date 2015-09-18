@@ -53,7 +53,7 @@ app.post('/', function (req, res) {
     				{locale: 'fr-FR', text: 'Here is another tweet en Francais'},
     				{locale: 'de-DE', text: ''}
     			]
-    		}
+    		},
     		tweet2: {
     			time : 'Lets work this out later',
     			source: {locale: 'en-EN', text: 'Here is a tweet in English'},
