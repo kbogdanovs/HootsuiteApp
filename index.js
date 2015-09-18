@@ -127,15 +127,14 @@ app.get('/tweet', function (request, response) {
       	fs.writeFile(filename, jsonText);
       	var uploader = new Uploader;
       	uploader.upload(filename)
+      	response.redirect('/')
       }
     });
     
   });
  });
 
-app.get('/tweetupload', function (request, response) {
-   response.redirect('/')
- });
+
 
 
 
