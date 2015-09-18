@@ -11,8 +11,8 @@ var ejs = require('ejs')
 var http = require('http')
 var userInfo = {
 	userId: 12698567,
-	firstName: 'Kale'
-	sourceLocale: 'en-EN'
+	firstName: 'Kale',
+	sourceLocale: 'en-EN',
 	locales: ['fr-FR', 'de-DE']
 };
 
