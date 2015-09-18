@@ -102,7 +102,7 @@ app.get('/tweet', function (request, response) {
       	object = result.rows[0]
       	console.log(object)
       	var filename = object.tweetid.toString();
-      	var jsonText = '{"text" : "' + object.sourcetext + '"}';
+      	var jsonText = '{"tweetText" : "' + object.sourcetext + '"}';
       	fs.writeFile(filename, jsonText);
       	var uploader = new Uploader;
       	uploader.upload(filename)
@@ -113,6 +113,14 @@ app.get('/tweet', function (request, response) {
  });
 
 
+app.get('/translated' function (request, response) {
+	var urlData = url.parse(request.url,true).query;
+	var locale = urlData.locale;
+	var fileUri = urlData.fileUri;
+	var downloader = new downloader;
+	downloader.download(fileUri, locale);
+	response.redirect('/');
+})
 
 
 

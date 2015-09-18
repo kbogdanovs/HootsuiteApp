@@ -51,7 +51,7 @@
 
                 <div class="hs_contentText">
                 <p>
-                    <form action="tweet" method="get">
+                    <form action="tweet" method "get">
                         Enter text<br />
                         <input name="tweetContent" maxlength="140"/>
                         <input type="submit" />
@@ -79,13 +79,11 @@
                 <div class="hs_contentText">
                     <p> <%= tweet.sourcetext %> </p>
                     <form action ="delete" method="get">
-                        <input type="submit" value="<% tweet.tweetid %>" />
+                        <input type"submit" value="<% tweet.tweetid %>" />
                     </form>
                 </div>
             </div>
         </div>
-
-        <% userInfo.locales.forEach(function (locale) { %>
 
                 <div class="hs_message">
                     <div class="hs_avatar">
@@ -98,11 +96,13 @@
                         <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
 
                         <div class="hs_contentText">
-                            <p> we can work these out later </p>
+                            <p> <% if(tweet['fr-FR']) { {{{tweet['fr-FR']}}} } else { No translation available at this time } %> </p>
                         </div>
                     </div>
                 </div>
-      <%  }); %>
+
+                
+
     </div>
 <% }); %>
 

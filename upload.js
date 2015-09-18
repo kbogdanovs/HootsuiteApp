@@ -19,7 +19,7 @@ for (x=0; x < locales.length; x++) {
 var curlOptions = {
 	filepath: file,
 	localesToApprove: authLocales,
-	callbackUrl: 'http://requestb.in/vneb0tvn',
+	callbackUrl: 'https://hsnodesmartlingsocial.herokuapp.com/translated/',
 	apiKey: 'd39e8d85-3d7b-46f5-ad79-30edf0ccf7b3',
 	projectId: 'c5c7a69ed'
 }
