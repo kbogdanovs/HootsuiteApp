@@ -64,8 +64,7 @@ app.post('/', function (req, res) {
     				{locale: 'de-DE', text: 'Here is another tweet auf Deutsch'}
     				]
     			}
-    		]
-    	};
+    		];
     res.render('pages/demo', { userInfo: userInfo, tweets: tweets })
 });
 
