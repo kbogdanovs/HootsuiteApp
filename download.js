@@ -4,6 +4,7 @@ var Downloader = function() {
 
 var mustache = require('mustache');
 var fs = require('fs');
+var pg = require('pg');
 
 Downloader.prototype.download = function(file, locale) {
 
@@ -11,6 +12,7 @@ var util = require('util');
 var exec = require('child_process').exec;
 
 var tweetid = file.replace('.json', '');
+
 var curlOptions = {
 	fileUri: file,
 	locale: locale,
