@@ -97,8 +97,9 @@ app.get('/tweet', function (request, response) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else { 
-      	console.log(result.rows) 
-      	var filename = result.tweetid.toString();
+      	console.log(result.rows);
+      	var protofilename = result.tweetid;
+      	var filename = protofilename.toString();
       	var jsonText = '{"text" : "' + result.sourcetext + '"}';
       	fs.writeFile(filename, jsonText);
       	var uploader = new Uploader;
