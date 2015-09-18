@@ -35,8 +35,9 @@ else
 	fs.readFile('/etc/passwd', function (err, data) {
   		if (err) throw err;
   		var translation = JSON.parse(data);
+  		console.log(translation);
 		});
-	console.log(translation.text)
+	console.log(translation.tweetText)
 	var dbDownload = "INSERT INTO usertweets (" + locale + ") VALUES (" +translation.tweetText + " WHERE tweetid = '" + tweetid + "';"
 
 	  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
