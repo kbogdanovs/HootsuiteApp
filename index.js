@@ -113,7 +113,7 @@ app.get('/tweet', function (request, response) {
  });
 
 
-app.get('/translated' function (request, response) {
+app.get('/translated', function (request, response) {
 	var urlData = url.parse(request.url,true).query;
 	var locale = urlData.locale;
 	var fileUri = urlData.fileUri;
