@@ -40,10 +40,13 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
+    
+
+
     var tweets = [
     			{
-    			id: 'tweet1',
-    			time : 'Lets work this out later',
+    			userid: 'tweet1',
+    			created : 'Lets work this out later',
     			sourceLocale: 'en-EN',
     			sourceText: 'Here is a tweet',
     			translations: [
@@ -66,37 +69,22 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function (req, res) {
-    var tweets = [
-    			{
-    			id: 'tweet1',
-    			time : 'Lets work this out later',
-    			sourceLocale: 'en-EN',
-    			sourceText: 'Here is a tweet',
-    			translations: [
-    				['fr-FR', 'Here is a tweet en Francais'],
-    				['de-DE', '']
-    				]
-    			},
-    			{
-    			id: 'tweet2',
-    			time : 'Lets work this out later',
-    			sourceLocale: 'en-EN',
-    			sourceText: 'Here is another tweet',
-    			translations: [
-    				['fr-FR', '', false, false],
-    				['de-DE', 'Here is another tweet auf Deutsch', false, false]
-    				]
-    			}
-    		];
-    res.render('pages/demo', { userId: 1235, tweets: tweets })
+    
+   var getTweets = "SELECT * FROM usertweets WHERE userid = '" + userInfo.userId + "';"
+   console.log(getTweets)
+   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query(getTweets, function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else { 
+      	tweets = result.rows
+      	console.log(tweets)
+      }
+    });
+   });
+    res.render('pages/demo', { userInfo: userInfo, tweets: tweets })
 });
-
-app.get('/upload', function (req, res) {
-    var uploader = new Uploader;
-    uploader.upload('./test2.json');
-    res.render('pages/uploadresult');
-});
-
 
 
 app.get('/tweet', function (request, response) {
@@ -127,11 +115,10 @@ app.get('/tweet', function (request, response) {
       	fs.writeFile(filename, jsonText);
       	var uploader = new Uploader;
       	uploader.upload(filename)
-      	response.redirect('/')
       }
     });
-    
-  });
+   });
+   response.redirect('/');
  });
 
 
