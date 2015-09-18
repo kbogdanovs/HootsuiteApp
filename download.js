@@ -54,4 +54,4 @@ else
 
 });
 };
-module.exports = Uploader;
+module.exports = Downloader;
