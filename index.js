@@ -7,6 +7,7 @@ var Uploader = require('./upload')
 var pg = require('pg');
 var bodyParser = require('body-parser')
 var url = require('url')
+var ejs = require('ejs')
 
 
 
@@ -31,15 +32,11 @@ app.use("/asset", express.static(__dirname + '/asset'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function (req, res) {
-  res.render('pages/demo');
-});
-
 app.post('/', function (req, res) {
     var queryObject = url.parse(req.url,true).query;
     var userId = queryObject.uid
     var userInfo = {
-    	id: userId,
+    	id: 1234,
     	name: 'Kale'
     }
     res.render('pages/demo', userInfo)
