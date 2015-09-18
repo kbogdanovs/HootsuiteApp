@@ -56,7 +56,8 @@ app.get('/tweet', function (req, res) {
 	fs.writeFile('tweet1.json', jsonText);
 	var uploader = new Uploader;
 	uploader.upload('tweet1.json');
-	res.redirect('/')
+	app.post('/')
+
 })
 
 app.listen(app.get('port'), function() {
