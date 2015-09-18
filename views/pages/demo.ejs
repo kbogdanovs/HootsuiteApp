@@ -82,8 +82,8 @@
             </div>
         </div>
 
-        <% tweet.translations.forEach(function (translation) { %>
-            <% if(translation[1] !== ''){ %>
+        <% userInfo.locales.forEach(function (locale) { %>
+
                 <div class="hs_message">
                     <div class="hs_avatar">
                         <img class="hs_avatarImage" src="./asset/avatar.png" alt="Avatar">
@@ -95,27 +95,10 @@
                         <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
 
                         <div class="hs_contentText">
-                            <p> <%= translation[1] %> </p>
+                            <p> <%= we can work out these later %> </p>
                         </div>
                     </div>
                 </div>
-            <% } else{ %>
-                <div class="hs_message">
-                    <div class="hs_avatar">
-                        <img class="hs_avatarImage" src="./asset/avatar.png" alt="Avatar">
-                        <a href="#" class="hs_avatarLink" title="Username"></a>
-                    </div>
-
-                    <div class="hs_content">
-                        <a href="#" class="hs_userName" title="Username">Hootsuite</a>
-                        <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
-
-                        <div class="hs_contentText">
-                            <p> <%= translation[0] %> has not bee translated yet. </p>
-                        </div>
-                    </div>
-                </div>
-            <% }; %>
       <%  }); %>
     </div>
 <% }); %>
