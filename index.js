@@ -41,34 +41,7 @@ app.use("/asset", express.static(__dirname + '/asset'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function (req, res) {
-    
 
-
-    var tweets = [
-    			{
-    			userid: 'tweet1',
-    			created : 'Lets work this out later',
-    			sourceLocale: 'en-EN',
-    			sourceText: 'Here is a tweet',
-    			translations: [
-    				['fr-FR', 'Here is a tweet en Francais'],
-    				['de-DE', '']
-    				]
-    			},
-    			{
-    			id: 'tweet2',
-    			time : 'Lets work this out later',
-    			sourceLocale: 'en-EN',
-    			sourceText: 'Here is another tweet',
-    			translations: [
-    				['fr-FR', '', false, false],
-    				['de-DE', 'Here is another tweet auf Deutsch', false, false]
-    				]
-    			}
-    		];
-    res.render('pages/demo', { userId: 1235, tweets: tweets })
-});
 
 app.post('/', function (req, res) {
    var getTweets = "SELECT * FROM usertweets WHERE userid = '" + userInfo.userId + "';"
