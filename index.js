@@ -78,15 +78,24 @@ app.get('/upload', function (req, res) {
 
 app.get('/tweet', function (req, res) {
 	var sourceText = url.parse(req.url,true).query;
-	var jsonText = '{"text" : "' + sourceText.tweetContent + '"}';
-	var x = 0
 	
-	filename = ''
-	fs.writeFile('tweet1.json', jsonText);
-	var uploader = new Uploader;
-	uploader.upload('tweet1.json');
 	res.redirect('/')
+});
+
+app.get('/tweet', function (request, response) {
+  var sourceText = url.parse(req.url,true).query
+  var dbQuery = "INSERT INTO tweets (sourceLocale, sourceText) VALUES ('en-EN', '" + sourceText + "');"
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query(dbQuery, function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { response.render('pages/db', {results: result.rows} ); }
+    });
+  });
 })
+
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
