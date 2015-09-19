@@ -18,12 +18,12 @@ var userInfo = {
 	sourceLocale: 'en-EN',
 	locales: ['fr-FR', 'de-DE'],
 	hslocales: [
-		frfr: {
+		 {
 			code: 'frfr',
 			language: 'French',
 			img: './asset/icons/France.png'
 		},
-		dede: {
+		{
 			code: 'frfr',
 			language: 'German',
 			img: './asset/icons/Germany.png'
