@@ -118,6 +118,14 @@ app.get('/translated', function (request, response) {
 	var downloader = new Downloader;
 	downloader.download(fileUri, locale);
 	response.redirect('/');
+});
+
+app.get('/delete', function (request, response) {
+	var urlData = url.parse(request.url,true).query;
+	var fileUri = urlData.fileUri;
+	var deleter = new Deleter;
+	deleter.remove(fileUri);
+	response.redirect('/');
 })
 
 
