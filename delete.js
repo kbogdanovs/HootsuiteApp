@@ -24,9 +24,6 @@ var command = mustache.render('curl -X DELETE "https://api.smartling.com/v1/file
 
 child = exec(command, function(error, stdout, stderr){
 
-var parsed = JSON.parse(stdout)
-tweetText = parsed["tweetText"]
-console.log('its the test variable ' + tweetText)
 
 if(error !== null)
 {
@@ -34,6 +31,7 @@ if(error !== null)
 }
 else
 {
+	console.log(stdout)
 	var dbDelete = "DELETE FROM usertweets WHERE tweetid = " + tweetid + ";"
 	console.log(dbDelete)
 	  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
