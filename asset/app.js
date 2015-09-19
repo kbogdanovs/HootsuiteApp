@@ -1,7 +1,7 @@
 $(document).ready(function() {
     hsp.init({
         useTheme: true,
-        apiKey: "3jxdot922fwgkosgsccgows8s3icn2bnpna"
+        apiKey: '3jxdot922fwgkosgsccgows8s3icn2bnpn'
     });
 
     $('._message_send').click(function(){
