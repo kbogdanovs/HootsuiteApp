@@ -15,7 +15,7 @@ var userInfo = {
 	userId: 12698567,
 	firstName: 'Kale',
 	sourceLocale: 'en-EN',
-	locales: ['fr-FR', 'de-DE']
+	locales: ['fr-FR', 'de-DE'],
 	hslocales: ['frFr, deDE']
 };
 
