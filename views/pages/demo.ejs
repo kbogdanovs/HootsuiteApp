@@ -37,7 +37,6 @@
                 </div>
             </div>
 
-
         <!--Message Stream-->
         <div class="hs_message">
             <div class="hs_avatar">
@@ -68,13 +67,13 @@
     <div class="multilingualtweet">   
         <div class="hs_message">
             <div class="hs_avatar">
-                <img class="hs_avatarImage" src="./asset/avatar.png" alt="Avatar">
+                <img class="hs_avatarImage" src="./asset/icons/United-States.png" alt="Avatar">
                 <a href="#" class="hs_avatarLink" title="Username"></a>
             </div>
 
             <div class="hs_content">
-                <a href="#" class="hs_userName" title="Username">Hootsuite</a>
-                <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
+                <a href="#" class="hs_userName" title="Username">Original/a>
+                <a href="#" class="hs_postTime" target="_blank" title="">2 minute ago</a>
 
                 <div class="hs_contentText">
                     <p> <%= tweet.sourcetext %> </p>
@@ -87,12 +86,12 @@
 
                 <div class="hs_message">
                     <div class="hs_avatar">
-                        <img class="hs_avatarImage" src="./asset/avatar.png" alt="Avatar">
+                        <img class="hs_avatarImage" src="./asset/icon/France.png" alt="Avatar">
                         <a href="#" class="hs_avatarLink" title="Username"></a>
                     </div>
 
                     <div class="hs_content">
-                        <a href="#" class="hs_userName" title="Username">Hootsuite</a>
+                        <a href="#" class="hs_userName" title="Username">French</a>
                         <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
 
                         <div class="hs_contentText">
@@ -100,7 +99,29 @@
                                 <% if(tweet.frfr !== null) { %>
                                     <%= tweet.frfr %> 
                                 <% } else { %>
-                                    No translation available at this time 
+                                    French not available, yet. 
+                                    <% } %> 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hs_message">
+                    <div class="hs_avatar">
+                        <img class="hs_avatarImage" src="./asset/icon/Germany.png" alt="Avatar">
+                        <a href="#" class="hs_avatarLink" title="Username"></a>
+                    </div>
+
+                    <div class="hs_content">
+                        <a href="#" class="hs_userName" title="Username">German</a>
+                        <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
+
+                        <div class="hs_contentText">
+                            <p> 
+                                <% if(tweet.frfr !== null) { %>
+                                    <%= tweet.frfr %> 
+                                <% } else { %>
+                                    German not available, yet.
                                     <% } %> 
                             </p>
                         </div>
