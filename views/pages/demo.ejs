@@ -71,7 +71,6 @@
             </div>
         </div>
             <% userInfo.hslocales.forEach(function (hslocale) { %>
-                <% var text = tweet[hslocale] %>
                 <div class="hs_message">
                     <div class="hs_avatar">
                         <img class="hs_avatarImage" src="./asset/icons/France.png" alt="Avatar">
@@ -87,7 +86,8 @@
                         <div class="hs_contentText">
                             <p> 
                                 <% if(tweet.frfr !== null) { %>
-                                    <%= tweet['frfr'] %> 
+                                    <%= tweet[hslocale] %>
+                                    <%= hslocale %> 
                                 <% } else { %>
                                     French not available, yet. 
                                     <% }; %> 
