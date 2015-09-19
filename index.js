@@ -24,7 +24,7 @@ var userInfo = {
 			img: './asset/icons/France.png'
 		},
 		{
-			code: 'frfr',
+			code: 'dede',
 			language: 'German',
 			img: './asset/icons/Germany.png'
 		}
