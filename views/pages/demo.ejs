@@ -78,7 +78,7 @@
                 <div class="hs_contentText">
                     <p> <%= tweet.sourcetext %> </p>
                     <form action ="download" method="get">
-                        <a type"button" href="https://hsnodesmartlingsocial.herokuapp.com/download?fileUri=<%= tweet.id %>&amp;locale=fr-FR" />
+                        
                     </form>
                 </div>
             </div>
@@ -92,6 +92,7 @@
 
                     <div class="hs_content">
                         <a href="#" class="hs_userName" title="Username">French</a>
+                        <a type"button" href="https://hsnodesmartlingsocial.herokuapp.com/download?fileUri=<%= tweet.id %>&amp;locale=fr-FR" />download</a>
                         <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
 
                         <div class="hs_contentText">
@@ -118,8 +119,8 @@
 
                         <div class="hs_contentText">
                             <p> 
-                                <% if(tweet.frfr !== null) { %>
-                                    <%= tweet.frfr %> 
+                                <% if(tweet.dede !== null) { %>
+                                    <%= tweet.dede %> 
                                 <% } else { %>
                                     German not available, yet.
                                     <% } %> 
