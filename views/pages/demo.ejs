@@ -73,21 +73,20 @@
             <% userInfo.hslocales.forEach(function (hslocale) { %>
                 <div class="hs_message">
                     <div class="hs_avatar">
-                        <img class="hs_avatarImage" src="./asset/icons/France.png" alt="Avatar">
+                        <img class="hs_avatarImage" src="<%= hslocale.img %>" alt="Avatar">
                         <a href="#" class="hs_avatarLink" title="Username"></a>
                     </div>
 
                     <div class="hs_content">
-                        <a href="#" class="hs_userName" title="Username">French</a>
+                        <a href="#" class="hs_userName" title="Username"><%= hslocale.language %></a>
                         <a type"button" class="icon-app-dir x-download" style="float: right" href="https://hsnodesmartlingsocial.herokuapp.com/translated?fileUri=<%= tweet.tweetid %>&amp;locale=fr-FR" /></a>
                         <a href="#" class="icon-app-dir x-schedule" style="float: right" onclick="hsp.composeMessage('<%= tweet.frfr %>');"></a>
                         <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
 
                         <div class="hs_contentText">
                             <p> 
-                                <% if(tweet.frfr !== null) { %>
-                                    <%= tweet[hslocale] %>
-                                    <%= hslocale %> 
+                                <% if(tweet[hslocale.code] !== null) { %>
+                                    <%= tweet[hslocale.code] %>
                                 <% } else { %>
                                     French not available, yet. 
                                     <% }; %> 

@@ -17,7 +17,18 @@ var userInfo = {
 	firstName: 'Kale',
 	sourceLocale: 'en-EN',
 	locales: ['fr-FR', 'de-DE'],
-	hslocales: ['frFr', 'deDE']
+	hslocales: {
+		frfr: {
+			code: 'frfr',
+			language 'French',
+			img: './asset/icons/France.png'
+		},
+		dede: {
+			code: 'frfr',
+			language: 'German',
+			img: './asset/icons/Germany.png'
+		}
+	}
 };
 
 
