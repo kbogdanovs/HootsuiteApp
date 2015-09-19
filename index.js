@@ -20,7 +20,7 @@ var userInfo = {
 	hslocales: {
 		frfr: {
 			code: 'frfr',
-			language 'French',
+			language: 'French',
 			img: './asset/icons/France.png'
 		},
 		dede: {
