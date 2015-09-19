@@ -19,7 +19,7 @@ var curlOptions = {
 	projectId: 'c5c7a69ed',
 }
 
-var command = mustache.render('curl -X DELETE "https://api.smartling.com/v1/file/delete?apiKey={{{apiKey}}}&projectId={{{projectId}}}&fileUri={{{file}}}"', curlOptions);
+var command = mustache.render('curl -X DELETE "https://api.smartling.com/v1/file/delete?apiKey={{{apiKey}}}&projectId={{{projectId}}}&fileUri={{{fileUri}}}"', curlOptions);
 
 
 child = exec(command, function(error, stdout, stderr){
