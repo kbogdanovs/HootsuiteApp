@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-            <% userInfo.hslocales.forEach (locale) { %>
+            <% userInfo.hslocales.forEach(function (locale) { %>
                 <% var text = tweet[locale] %>
                 <div class="hs_message">
                     <div class="hs_avatar">
@@ -90,7 +90,7 @@
                                     <%= text %> 
                                 <% } else { %>
                                     French not available, yet. 
-                                    <% } %> 
+                                    <% }); %> 
                             </p>
                         </div>
                     </div>
