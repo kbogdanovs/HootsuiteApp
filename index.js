@@ -6,6 +6,7 @@ var mustache = require('mustache');
 var Uploader = require('./upload')
 var Refresher = require('./refresh')
 var Downloader = require('./download')
+var Deleter = require('./delete')
 var pg = require('pg');
 var bodyParser = require('body-parser')
 var url = require('url')
