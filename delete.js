@@ -11,7 +11,6 @@ Deleter.prototype.remove = function(file) {
 var util = require('util');
 var exec = require('child_process').exec;
 
-var hslocale = locale.replace('-', '')
 var tweetid = file.replace('.json', '');
 
 var curlOptions = {
