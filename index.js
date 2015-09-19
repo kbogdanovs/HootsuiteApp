@@ -16,6 +16,7 @@ var userInfo = {
 	firstName: 'Kale',
 	sourceLocale: 'en-EN',
 	locales: ['fr-FR', 'de-DE']
+	hslocales: ['frFr, deDE']
 };
 
 
@@ -54,7 +55,6 @@ app.get('/', function (req, res) {
        { console.error(err); response.send("Error " + err); }
       else { 
       	var tweets = result.rows
-      	console.log(tweets)
       	res.render('pages/demo', { userInfo: userInfo, tweets: tweets })
       }
     });
@@ -71,7 +71,6 @@ app.post('/', function (req, res) {
        { console.error(err); response.send("Error " + err); }
       else { 
       	var tweets = result.rows
-      	console.log(tweets)
       	res.render('pages/demo', { userInfo: userInfo, tweets: tweets })
       }
     });
@@ -93,7 +92,6 @@ app.get('/tweet', function (request, response) {
     });
   });
    var getfilename = "SELECT * FROM usertweets WHERE sourceText = '" + sourceText.tweetContent + "';"
-   console.log(getfilename)
    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query(getfilename, function(err, result) {
       done();
@@ -101,7 +99,6 @@ app.get('/tweet', function (request, response) {
        { console.error(err); response.send("Error " + err); }
       else { 
       	object = result.rows[0]
-      	console.log(object)
       	var filename = object.tweetid.toString();
       	var jsonText = '{"tweetText" : "' + object.sourcetext + '"}';
       	fs.writeFile(filename, jsonText);

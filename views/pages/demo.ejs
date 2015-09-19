@@ -77,8 +77,8 @@
 
                 <div class="hs_contentText">
                     <p> <%= tweet.sourcetext %> </p>
-                    <form action ="delete" method="get">
-                        <input type"submit" value="<% tweet.tweetid %>" />
+                    <form action ="download" method="get">
+                        <a type"button" href="https://hsnodesmartlingsocial.herokuapp.com/download?fileUri=<%= tweet.id %>&amp;locale=fr-FR" />
                     </form>
                 </div>
             </div>
