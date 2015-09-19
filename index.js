@@ -17,7 +17,7 @@ var userInfo = {
 	firstName: 'Kale',
 	sourceLocale: 'en-EN',
 	locales: ['fr-FR', 'de-DE'],
-	hslocales: {
+	hslocales: [
 		frfr: {
 			code: 'frfr',
 			language: 'French',
@@ -28,7 +28,7 @@ var userInfo = {
 			language: 'German',
 			img: './asset/icons/Germany.png'
 		}
-	}
+	]
 };
 
 
