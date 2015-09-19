@@ -12,8 +12,8 @@ $(document).ready(function() {
         hsp.showUser($('._user_text').val());
     });
 
-    $('._composeMessage').click(function(){
-        hsp.composeMessage('- sending from the new Appdirecoty SDK');
+    $('._composeMessage').click(function(text){
+        hsp.composeMessage(text);
     });
 
     $('._retweet').click(function(){
