@@ -65,8 +65,10 @@
                 <a href="#" class="icon-app-dir x-schedule" style="float: right" onclick="hsp.composeMessage('<%= tweet.sourcetext %>'); 
                     var time = event.timestamp; 
                     var shaObj = new jsSHA("12698567" + time + <%= tweet.imageurl %> + "asadgwelakau8JEnwmdv3", "TEXT");
+                    console.log(shaObj)
                     var mytoken =  shaObj.getHash("SHA-512", "TEXT");
-                    console.log(mytoken)
+                    console.log(mytoken);
+                    hsp.attachFileToMessage ({
                     hsp.attachFileToMessage ({
                         url: '<%= tweet.imageurl %>', 
                         name:'test', 
