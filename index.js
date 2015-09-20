@@ -12,6 +12,7 @@ var bodyParser = require('body-parser')
 var url = require('url')
 var ejs = require('ejs')
 var http = require('http')
+var jsSHA = require("jssha");
 
 var userInfo = {
 	userId: 12698567,
