@@ -45,4 +45,11 @@ else
 });
 
 
+
+
+
+var newbody = stdout
+
+});
+};
 module.exports = Contextualizer;
