@@ -119,7 +119,8 @@ app.get('/tweet', function (request, response) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else { 
-      	var object = result.rows[0]
+      	var object = result.rows[0];
+        console.log(result.rows[0]);
       	var filename = object.tweetid.toString();
       	var jsonText = '{"tweetText" : "' + object.sourcetext + '"}';
       	var fileupname = fs.writeFileSync(filename, jsonText);
