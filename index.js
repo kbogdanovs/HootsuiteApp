@@ -12,7 +12,8 @@ var bodyParser = require('body-parser')
 var url = require('url')
 var ejs = require('ejs')
 var http = require('http')
-var jsSHA = require("jssha");
+var jsSHA = require('jssha');
+var hsp = require('https://d2l6uygi1pgnys.cloudfront.net/jsapi/2-0/hsp.js')
 
 var userInfo = {
 	userId: 12698567,
@@ -144,7 +145,28 @@ app.get('/delete', function (request, response) {
 	response.redirect('/');
 })
 
-
+app.get('/imageupload', function (request, response) {
+  var urlData = url.parse(request.url,true).query;
+  var timesec = Math.floor(Date.now() / 1000)
+  var timestamp = timesec.toString() 
+  var imageurl = urlData.imageurl
+  console.log("timestamp is" + timestamp)
+  var mystring = "12698567" + timestamp + <%= tweet.imageurl %> + "asadgwelakau8JEnwmdv3"
+  console.log("string is" + string)
+  var shaObj = new jsSHA(mystring, "TEXT");
+  console.log("shaobj is" + shaObj)
+  var mytoken = shaObj.getHash("SHA-512", "HEX");
+  console.log("mytoken is" + mytoken);
+  hsp.init({
+  }};
+  hsp.attachFileToMessage ({
+    url: imageurl,
+    name:'test', 
+    extension: 'jpg', 
+    timestamp: timesec, 
+    token: mytoken
+  });
+})
 
 
 app.listen(app.get('port'), function() {
