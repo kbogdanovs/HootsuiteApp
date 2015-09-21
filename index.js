@@ -103,8 +103,11 @@ app.get('/tweet', function (request, response) {
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
-      else
-       { console.log(result)}
+      else { 
+        console.log(result);
+        var contextualizer = new Contextualizer;
+        contextualizer.contextualize(sourceText.tweetContent, userInfo.mainavatar, sourceText.imageUrl);
+      }
     });
   });
    var getfilename = "SELECT * FROM usertweets WHERE sourceText = '" + sourceText.tweetContent + "';"
@@ -120,7 +123,8 @@ app.get('/tweet', function (request, response) {
       	var jsonText = '{"tweetText" : "' + object.sourcetext + '"}';
       	fs.writeFile(filename, jsonText);
       	var uploader = new Uploader;
-      	uploader.upload(filename)
+      	uploader.upload(filename, sourceText.tweetContent, userInfo.mainavatar, sourceText.imageUrl);
+                
       }
     });
    });
