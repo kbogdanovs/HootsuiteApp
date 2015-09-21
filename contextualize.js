@@ -10,9 +10,9 @@ var util = require('util');
 var exec = require('child_process').exec;
 
 var htmloptions = {
-    text = text,
-    avatar = avatar,
-    image = image
+    text: text,
+    avatar: avatar,
+    image: image
 }
 
 var context = mustache.render('<!DOCTYPE html>
