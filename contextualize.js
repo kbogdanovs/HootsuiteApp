@@ -34,7 +34,7 @@ curlOptions = {
 };
 
 var command = mustache.render('curl  --form "html={{{filepath}}}" --form apiKey={{{apiKey}}} --form projectId={{{projectId}}} --form url=/tweetcontext  "https://api.smartling.com/v1/context/html?action=upload"', curlOptions);
-
+console.log(command)
 
 child = exec(command, function(error, stdout, stderr){
 
