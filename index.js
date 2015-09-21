@@ -156,6 +156,7 @@ app.get('/imageupload', function (request, response) {
   var mytoken = shaObj.getHash("SHA-512", "HEX");
   console.log("mytoken is" + mytoken);
   response.send({token: mytoken});
+});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
