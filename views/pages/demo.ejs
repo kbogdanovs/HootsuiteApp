@@ -12,6 +12,27 @@
         <script src="./asset/uploadhelper.js"></script>
         <!-- hashing algorithm-->
         <script type="text/javascript" src="./asset/sha.js"></script>
+        
+        <script type="text/javascript">
+          $(document).ready(function($) {
+            $('#accordion').find('.accordion-toggle').click(function(){
+
+              //Expand or collapse this panel
+              $(this).next().slideToggle('fast');
+
+              //Hide the other panels
+              $(".accordion-content").not($(this).next()).slideUp('fast');
+
+            });
+          });
+        </script>
+
+        <style>
+          .accordion-toggle {cursor: pointer;}
+          .accordion-content {display: none;}
+          .accordion-content.default {display: block;}
+        </style>
+
     </head>
 
     <body>
@@ -53,8 +74,8 @@
         <!--Basic Message-->
         
 <% tweets.forEach(function (tweet) { %>
-    <div class="multilingualtweet">   
-        <div class="hs_message">
+    <div class="multilingualtweet, accordion">   
+        <div class="hs_message, accordion-content default">
             <div class="hs_avatar">
                 <img class="hs_avatarImage" src="./asset/icons/United-States.png" alt="Avatar">
                 <a href="#" class="hs_avatarLink" title="Username"></a>
@@ -62,20 +83,26 @@
 
             <div class="hs_content">
                 <a href="#" class="hs_userName" title="Username">Original</a>
+                <a type"button" class="icon-app-dir x-angle-down, accordion-toggle" style="float: right"/></a>
                 <a type"button" class="icon-app-dir x-trash" style="float: right" href="https://hsnodesmartlingsocial.herokuapp.com/delete?fileUri=<%= tweet.tweetid %>" /></a>
                 <a href="#" class="icon-app-dir x-schedule" style="float: right" onclick="hsp.composeMessage('<%= tweet.sourcetext %>'); attach('<%= tweet.imageurl %>', 'test', 'jpg');"></a>
                 <a href="#" class="hs_postTime" target="_blank" title="">2 minute ago</a>
 
                 <div class="hs_contentText">
                     <p> <%= tweet.sourcetext %> </p>
-                    <form action ="download" method="get">
-                        
+                    <form action ="download" method="get">                        
                     </form>
                 </div>
+                        <div class="hs_mediaGallery">
+                            <a class="hs_attachedMedia" href="#">
+                            <!--Single images are cropped to a 16:9 ratio-->
+                            <img src="<%= tweet.imageurl %>" alt="Sample Image" class="hs_isProcessed _showImagePreview">
+                            </a>
+                        </div>
             </div>
         </div>
             <% userInfo.hslocales.forEach(function (hslocale) { %>
-                <div class="hs_message">
+                <div class="hs_message, accordion-content">
                     <div class="hs_avatar">
                         <img class="hs_avatarImage" src="<%= hslocale.img %>" alt="Avatar">
                         <a href="#" class="hs_avatarLink" title="Username"></a>
@@ -97,15 +124,14 @@
                             </p>
                         </div>
                         <div class="hs_mediaGallery">
-                        <a class="hs_attachedMedia" href="#">
+                            <a class="hs_attachedMedia" href="#">
                             <!--Single images are cropped to a 16:9 ratio-->
                             <img src="<%= tweet.imageurl %>" alt="Sample Image" class="hs_isProcessed _showImagePreview">
-                        </a>
-                    </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <% }); %>
-
     </div>
 <% }); %>
 
