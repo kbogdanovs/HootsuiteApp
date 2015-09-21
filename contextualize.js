@@ -24,7 +24,7 @@ fs.writeFile('context.html', context);
 
 
 var curlOptions = {
-    filepath: 'context.html'
+    filepath: 'context.html',
     apiKey: 'd39e8d85-3d7b-46f5-ad79-30edf0ccf7b3',
     projectId: 'c5c7a69ed'
 }
