@@ -147,7 +147,7 @@ app.get('/delete', function (request, response) {
 app.get('/imageupload', function (request, response) {
   var urlData = url.parse(request.url,true).query;
   var timestamp = urlData.timestamp
-  var imageurl = "http://my.vetmatrixbase.com/clients/12679/images/Gorgeous_puppies.jpg"
+  var imageurl = urlData.imageurl
   var mystring = "12698567" + timestamp + imageurl + "asadgwelakau8JEnwmdv3"
   console.log("mystring is" + mystring)
   var shaObj = new jsSHA(mystring, "TEXT");
