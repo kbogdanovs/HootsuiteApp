@@ -13,13 +13,12 @@ $.ajax({
   },
   dataType: "script",
 }).always(function (resp) {
-  var text = JSON.parse(resp);
   hsp.attachFileToMessage ({
     url: imageurl,
     name: imagename, 
     extension: imageextension, 
     timestamp: timesec, 
-    token: text.token
+    token: resp.token
   });
 });
 
