@@ -55,13 +55,13 @@
 
             <div class="hs_content">
                 <a href="#" class="hs_userName" title="Username">  </a>
-                <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">1 minute ago</a>
 
                 <div class="hs_contentText">
                 <p>
                     <form action="tweet" method "get">
-                        Enter text<br />
-                        <input name="tweetContent" maxlength="140"/>
+                        Enter some text<br />
+                        <input name="tweetContent" maxlength="140"/><br/>
+                        Attach an image
                         <input name="imageUrl">
                         <input type="submit" />
                     </form>
@@ -92,7 +92,7 @@
                     <form action ="download" method="get">                        
                     </form>
                 </div>
-                    <% if(tweet.imageurl !== null) { %>  
+                    <% if(tweet.imageurl !== '') { %>  
                         <div class="hs_mediaGallery">
                             <a class="hs_attachedMedia" href="#">
                             <!--Single images are cropped to a 16:9 ratio-->
