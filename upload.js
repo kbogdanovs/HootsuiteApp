@@ -6,7 +6,7 @@ var Uploader = function() {
 var mustache = require('mustache');
 var Contextualizer = require('./contextualize');
 
-Uploader.prototype.upload = function(file, text avatar, image) {
+Uploader.prototype.upload = function(file, text, avatar, image) {
 
 var util = require('util');
 var exec = require('child_process').exec;
