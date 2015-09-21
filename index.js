@@ -147,7 +147,7 @@ app.get('/delete', function (request, response) {
 app.get('/imageupload', function (request, response) {
   var urlData = url.parse(request.url,true).query;
   var timestamp = urlData.timestamp
-  var imageurl = urlData.imageurl
+  var imageurl = "http://my.vetmatrixbase.com/clients/12679/images/Gorgeous_puppies.jpg"
   var mystring = "12698567" + timestamp + imageurl + "asadgwelakau8JEnwmdv3"
   console.log("mystring is" + mystring)
   var shaObj = new jsSHA(mystring, "TEXT");
@@ -155,7 +155,6 @@ app.get('/imageupload', function (request, response) {
   var mytoken = shaObj.getHash("SHA-512", "HEX");
   console.log("mytoken is" + mytoken);
   response.send({token: mytoken});
-  console.log(response)
 });
 
 app.listen(app.get('port'), function() {
