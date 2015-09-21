@@ -151,7 +151,7 @@ app.get('/imageupload', function (request, response) {
   var timestamp = timesec.toString() 
   var imageurl = urlData.imageurl
   console.log("timestamp is" + timestamp)
-  var mystring = "12698567" + timestamp + <%= tweet.imageurl %> + "asadgwelakau8JEnwmdv3"
+  var mystring = "12698567" + timestamp + imageurl + "asadgwelakau8JEnwmdv3"
   console.log("string is" + string)
   var shaObj = new jsSHA(mystring, "TEXT");
   console.log("shaobj is" + shaObj)
