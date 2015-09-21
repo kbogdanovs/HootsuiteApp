@@ -8,6 +8,8 @@ $.ajax({
   url: url,
   type: "GET",
   data: {
+    more: 'data',
+    andextra: 'data'
   },
   dataType: "script",
 }).always(function (resp) {
