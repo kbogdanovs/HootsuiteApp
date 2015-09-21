@@ -108,7 +108,7 @@ app.get('/tweet', function (request, response) {
       }
     });
   });
-   var redirecturl = '/upload?tweetContent=' + sourceText.tweetContent +'&imageUrl=' + sourcetext.imageUrl
+   var redirecturl = '/upload?tweetContent=' + sourceText.tweetContent +'&imageUrl=' + sourceText.imageUrl
    response.redirect(redirecturl);
  });
 
