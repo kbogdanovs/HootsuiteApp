@@ -149,12 +149,13 @@ app.get('/imageupload', function (request, response) {
   var timestamp = urlData.timestamp
   var imageurl = urlData.imageurl
   var mystring = "12698567" + timestamp + imageurl + "asadgwelakau8JEnwmdv3"
-  console.log("mystring is" + string)
+  console.log("mystring is" + mystring)
   var shaObj = new jsSHA(mystring, "TEXT");
   console.log("shaobj is" + shaObj)
   var mytoken = shaObj.getHash("SHA-512", "HEX");
   console.log("mytoken is" + mytoken);
   response.send({token: mytoken});
+  console.log(response)
 });
 
 app.listen(app.get('port'), function() {
