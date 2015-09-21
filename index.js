@@ -95,9 +95,9 @@ app.post('/', function (req, res) {
 
 
 app.get('/tweet', function (request, response) {
-  var unescText = url.parse(request.url,true).query
-  var sourceText = unescText.replace(/'/g, "\\\'");
-  var dbQuery = "INSERT INTO usertweets (userId, sourceLocale, sourceText, imageurl) VALUES (" + userInfo.userId + ", 'en-EN', '" + sourceText.tweetContent + "', '" + sourceText.imageUrl + "')"
+  var sourceText = url.parse(request.url,true).query
+  var tweetContent = sourceText.tweetContent.replace(/'/g, "\\\'");
+  var dbQuery = "INSERT INTO usertweets (userId, sourceLocale, sourceText, imageurl) VALUES (" + userInfo.userId + ", 'en-EN', '" + tweetContent + "', '" + sourceText.imageUrl + "')"
   console.log(dbQuery);
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query(dbQuery, function(err, result) {
@@ -107,11 +107,11 @@ app.get('/tweet', function (request, response) {
       else { 
         console.log(result);
         var contextualizer = new Contextualizer;
-        contextualizer.contextualize(sourceText.tweetContent, userInfo.mainavatar, sourceText.imageUrl);
+        contextualizer.contextualize(tweetContent, userInfo.mainavatar, sourceText.imageUrl);
       }
     });
   });
-   var getfilename = "SELECT * FROM usertweets WHERE sourceText = '" + sourceText.tweetContent + "';"
+   var getfilename = "SELECT * FROM usertweets WHERE sourceText = '" + tweetContent + "';"
    console.log(getfilename)
    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query(getfilename, function(err, result) {
@@ -124,14 +124,14 @@ app.get('/tweet', function (request, response) {
       	var jsonText = '{"tweetText" : "' + object.sourcetext + '"}';
       	fs.writeFile(filename, jsonText);
       	var uploader = new Uploader;
-      	uploader.upload(filename, sourceText.tweetContent, userInfo.mainavatar, sourceText.imageUrl);
+      	uploader.upload(filename, tweetContent, userInfo.mainavatar, sourceText.imageUrl);
                 
       }
     });
    });
 
    var contextualizer = new Contextualizer;
-   contextualizer.contextualize(sourceText.tweetContent, userInfo.mainavatar, sourceText.imageUrl);
+   contextualizer.contextualize(tweetContent, userInfo.mainavatar, sourceText.imageUrl);
 
    response.redirect('/');
  });
