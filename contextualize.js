@@ -24,7 +24,7 @@ var context = mustache.render('<!DOCTYPE html>\n<!--[if IE 8]><html class="lt-ie
 console.log(context)
 
 
-var file = fswriteFileSync('context.html', context);
+var file = fs.writeFileSync('context.html', context);
 console.log(file);
 
 
