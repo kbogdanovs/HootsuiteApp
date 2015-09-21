@@ -9,6 +9,7 @@
         
         <script src="./asset/template.js"></script>
         <script src="./asset/app.js"></script>
+        <script src="./asset/uploadhelper.js"></script>
         <!-- hashing algorithm-->
         <script type="text/javascript" src="./asset/sha.js"></script>
     </head>
@@ -83,7 +84,7 @@
                     <div class="hs_content">
                         <a href="#" class="hs_userName" title="Username"><%= hslocale.language %></a>
                         <a type"button" class="icon-app-dir x-download" style="float: right" href="https://hsnodesmartlingsocial.herokuapp.com/translated?fileUri=<%= tweet.tweetid %>&amp;locale=fr-FR" /></a>
-                        <a href="#" class="icon-app-dir x-schedule" style="float: right" onclick="hsp.composeMessage('<%= tweet[hslocale.code] %>');"></a>
+                        <a href="#" class="icon-app-dir x-schedule" style="float: right" onclick="hsp.composeMessage('<%= tweet[hslocale.code] %>'); attach('<%= tweet.imageurl %>', 'test', 'jpg');"></a>
                         <a href="#" class="hs_postTime" target="_blank" title="Sunday, September 14 2014 at 12:00pm via Hootsuite">2 minute ago</a>
 
                         <div class="hs_contentText">

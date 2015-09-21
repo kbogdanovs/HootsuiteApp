@@ -147,27 +147,15 @@ app.get('/delete', function (request, response) {
 
 app.get('/imageupload', function (request, response) {
   var urlData = url.parse(request.url,true).query;
-  var timesec = Math.floor(Date.now() / 1000)
-  var timestamp = timesec.toString() 
+  var timestamp = urlData.timestamp
   var imageurl = urlData.imageurl
-  console.log("timestamp is" + timestamp)
   var mystring = "12698567" + timestamp + imageurl + "asadgwelakau8JEnwmdv3"
-  console.log("string is" + string)
+  console.log("mystring is" + string)
   var shaObj = new jsSHA(mystring, "TEXT");
   console.log("shaobj is" + shaObj)
   var mytoken = shaObj.getHash("SHA-512", "HEX");
   console.log("mytoken is" + mytoken);
-  hsp.init({
-  });
-  hsp.attachFileToMessage ({
-    url: imageurl,
-    name:'test', 
-    extension: 'jpg', 
-    timestamp: timesec, 
-    token: mytoken
-  });
-})
-
+  response.send({token: mytoken});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
