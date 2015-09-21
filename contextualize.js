@@ -30,7 +30,7 @@ var file = fs.writeFileSync('./asset/context.html', context);
 curlOptions = {
 	apiKey: 'd39e8d85-3d7b-46f5-ad79-30edf0ccf7b3',
 	projectId: 'c5c7a69ed',
-	filepath: 'context.html'
+	filepath: './asset/context.html'
 };
 
 var command = mustache.render('curl  --form "html={{{filepath}}}" --form apiKey={{{apiKey}}} --form projectId={{{projectId}}} --form url=/tweetcontext  "https://api.smartling.com/v1/context/html?action=upload"', curlOptions);
