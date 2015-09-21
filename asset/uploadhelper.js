@@ -18,7 +18,7 @@ $.ajax({
     name: imagename, 
     extension: imageextension, 
     timestamp: timesec, 
-    token: resp.body.token
+    token: resp.responseText
   });
 });
 
