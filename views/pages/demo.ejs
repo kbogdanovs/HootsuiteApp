@@ -62,25 +62,7 @@
             <div class="hs_content">
                 <a href="#" class="hs_userName" title="Username">Original</a>
                 <a type"button" class="icon-app-dir x-trash" style="float: right" href="https://hsnodesmartlingsocial.herokuapp.com/delete?fileUri=<%= tweet.tweetid %>" /></a>
-                <a href="#" class="icon-app-dir x-schedule" style="float: right" onclick="hsp.composeMessage('<%= tweet.sourcetext %>'); 
-                    console.log(time)
-                    var timesec = Math.floor(Date.now() / 1000)
-                    var timestamp = timesec.toString() 
-                    var tweeturl = "http://testurl.com/asgeuw.img"
-                    console.log("timestamp is" + timestamp)
-                    var mystring = "12698567" + timestamp + <%= tweet.imageurl %> + "asadgwelakau8JEnwmdv3"
-                    console.log("string is" + string)
-                    var shaObj = new jsSHA(mystring, "TEXT");
-                    console.log("shaobj is" + shaObj)
-                    var mytoken = shaObj.getHash("SHA-512", "HEX");
-                    console.log("mytoken is" + mytoken);
-                    hsp.attachFileToMessage ({
-                        url: '<%= tweet.imageurl %>', 
-                        name:'test', 
-                        extension: 'jpg', 
-                        timestamp: timesec, 
-                        token: mytoken
-                    });"></a>
+                <a href="#" class="icon-app-dir x-schedule" style="float: right" onclick="hsp.composeMessage('<%= tweet.sourcetext %>');"></a>
                 <a href="#" class="hs_postTime" target="_blank" title="">2 minute ago</a>
 
                 <div class="hs_contentText">
