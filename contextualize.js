@@ -23,14 +23,10 @@ var context = mustache.render('<!DOCTYPE html>\n<!--[if IE 8]><html class="lt-ie
 
 console.log(context)
 
-fs.writeFile('context.html', context, function(err) {
-    if (err) throw err;
-    console.log('success');
-    var curlOptions = {
-    filepath: 'context.html',
-    apiKey: 'd39e8d85-3d7b-46f5-ad79-30edf0ccf7b3',
-    projectId: 'c5c7a69ed'
-};
+
+var file = fswriteFileSync('context.html', context);
+console.log(file);
+
 
 var command = mustache.render('curl  --form "html={{{filepath}}}" --form apiKey={{{apiKey}}} --form projectId={{{projectId}}} --form url=/tweetcontext  "https://api.smartling.com/v1/context/html?action=upload"', curlOptions);
 
@@ -49,6 +45,6 @@ else
 }
 });
 
-});
+
 };
 module.exports = Contextualizer;
