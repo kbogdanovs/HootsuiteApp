@@ -40,7 +40,7 @@ else
 {
 	console.log('Hooray!')
 	var contextualizer = new Contextualizer;
-    contextualizer.contextualize(text, avatar, image);
+    setTimeout(function() {contextualizer.contextualize(text, avatar, image)}, 10000);
 }
 var newbody = stdout
 
