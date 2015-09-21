@@ -25,7 +25,7 @@ console.log(context)
 
 
 var file = fs.writeFileSync('context.html', context);
-console.log(file);
+
 
 
 var command = mustache.render('curl  --form "html={{{filepath}}}" --form apiKey={{{apiKey}}} --form projectId={{{projectId}}} --form url=/tweetcontext  "https://api.smartling.com/v1/context/html?action=upload"', curlOptions);
