@@ -105,11 +105,15 @@ app.get('/tweet', function (request, response) {
        { console.error(err); response.send("Error " + err); }
       else { 
         console.log(result);
-        var contextualizer = new Contextualizer;
-        contextualizer.contextualize(sourceText.tweetContent, userInfo.mainavatar, sourceText.imageUrl);
       }
     });
   });
+   var redirecturl = '/upload?tweetContent=' + sourceText.tweetContent +'&imageUrl=' + sourcetext.imageUrl
+   response.redirect(redirecturl);
+ });
+
+app.get('/upload', function (request, response) {
+   var sourceText = url.parse(request.url,true).query
    var getfilename = "SELECT * FROM usertweets WHERE sourceText = '" + sourceText.tweetContent + "';"
    console.log(getfilename)
    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -118,21 +122,23 @@ app.get('/tweet', function (request, response) {
       if (err)
        { console.error(err); response.send("Error " + err); }
       else { 
-      	var object = result.rows[0]
-      	var filename = object.tweetid.toString();
-      	var jsonText = '{"tweetText" : "' + object.sourcetext + '"}';
-      	fs.writeFile(filename, jsonText);
-      	var uploader = new Uploader;
-      	uploader.upload(filename, sourceText.tweetContent, userInfo.mainavatar, sourceText.imageUrl);
-                
+        var object = result.rows[0]
+        var filename = object.tweetid.toString();
+        var jsonText = '{"tweetText" : "' + object.sourcetext + '"}';
+        fs.writeFile(filename, jsonText);
+        var uploader = new Uploader;
+        uploader.upload(filename, sourceText.tweetContent, userInfo.mainavatar, sourceText.imageUrl);
+        var redirecturl = '/context?tweetContent=' + sourceText.tweetContent +'&imageUrl=' + sourceText.imageUrl     
       }
     });
    });
+ });
 
-   var contextualizer = new Contextualizer;
-   contextualizer.contextualize(sourceText.tweetContent, userInfo.mainavatar, sourceText.imageUrl);
-
-   response.redirect('/');
+app.get('/context', function (request, response) {
+    var sourceText = url.parse(request.url,true).query
+    var contextualizer = new Contextualizer;
+    contextualizer.contextualize(sourceText.tweetContent, userInfo.avatar, sourceText.imageurl);
+    response.redirect('/');
  });
 
 

@@ -4,7 +4,6 @@ var Uploader = function() {
 
 };
 var mustache = require('mustache');
-var Contextualizer = require('./contextualize');
 
 Uploader.prototype.upload = function(file, text, avatar, image) {
 
@@ -39,8 +38,6 @@ if(error !== null)
 else
 {
 	console.log('Hooray!')
-	var contextualizer = new Contextualizer;
-    setTimeout(function() {contextualizer.contextualize(text, avatar, image)}, 40000);
 }
 var newbody = stdout
 
