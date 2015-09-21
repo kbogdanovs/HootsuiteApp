@@ -122,7 +122,7 @@ app.get('/tweet', function (request, response) {
       	var object = result.rows[0]
       	var filename = object.tweetid.toString();
       	var jsonText = '{"tweetText" : "' + object.sourcetext + '"}';
-      	fs.writeFile(filename, jsonText);
+      	var fileupname = fs.writeFileSync(filename, jsonText);
       	var uploader = new Uploader;
       	uploader.upload(filename, tweetContent, userInfo.mainavatar, sourceText.imageUrl);
                 
