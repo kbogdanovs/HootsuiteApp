@@ -74,8 +74,8 @@
         <!--Basic Message-->
         
 <% tweets.forEach(function (tweet) { %>
-    <div class="multilingualtweet accordion">   
-        <div class="hs_message accordian-toggle">
+    <div class="multilingualtweet">   
+        <div class="hs_message">
             <div class="hs_avatar">
                 <img class="hs_avatarImage" src="./asset/icons/United-States.png" alt="Avatar">
                 <a href="#" class="hs_avatarLink" title="Username"></a>
@@ -92,15 +92,17 @@
                     <form action ="download" method="get">                        
                     </form>
                 </div>
+                    <% if (tweet.imageurl !== null %>) { %>  
                         <div class="hs_mediaGallery">
                             <a class="hs_attachedMedia" href="#">
                             <!--Single images are cropped to a 16:9 ratio-->
                             <img src="<%= tweet.imageurl %>" alt="Sample Image" class="hs_isProcessed _showImagePreview">
                             </a>
                         </div>
+                    <% } %>
             </div>
         </div>
-         <div class="accordion-content">   
+         <div class="">   
             <% userInfo.hslocales.forEach(function (hslocale) { %>                
                 <div class="hs_message" style="background-color: #e6e6e6">
                     <div class="hs_avatar">
@@ -122,12 +124,6 @@
                                     <%= hslocale.language %> not available, yet. 
                                     <% }; %> 
                             </p>
-                        </div>
-                        <div class="hs_mediaGallery">
-                            <a class="hs_attachedMedia" href="#">
-                            <!--Single images are cropped to a 16:9 ratio-->
-                            <img src="<%= tweet.imageurl %>" alt="Sample Image" class="hs_isProcessed _showImagePreview">
-                            </a>
                         </div>
                     </div>
                 </div>
