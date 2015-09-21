@@ -65,6 +65,7 @@
                 <a href="#" class="icon-app-dir x-schedule" style="float: right" onclick="hsp.composeMessage('<%= tweet.sourcetext %>'); 
                     var time = Date.now() / 1000;
                     var timestamp = time.toString() 
+                    var tweeturl = "http://testurl.com/asgeuw.img"
                     console.log(time)
                     var shaObj = new jsSHA("12698567" + timestamp + <%= tweet.imageurl %> + "asadgwelakau8JEnwmdv3", "TEXT");
                     console.log(shaObj)
