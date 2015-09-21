@@ -13,7 +13,7 @@ var url = require('url')
 var ejs = require('ejs')
 var http = require('http')
 var jsSHA = require('jssha');
-var hsp = require('https://d2l6uygi1pgnys.cloudfront.net/jsapi/2-0/hsp.js')
+var hsp = require('https://d2l6uygi1pgnys.cloudfront.net/jsapi/2-0/hsp')
 
 var userInfo = {
 	userId: 12698567,
