@@ -7,6 +7,7 @@ var Uploader = require('./upload')
 var Refresher = require('./refresh')
 var Downloader = require('./download')
 var Deleter = require('./delete')
+var Contextualizer = require('./contextualize')
 var pg = require('pg');
 var bodyParser = require('body-parser')
 var url = require('url')
@@ -19,6 +20,7 @@ var userInfo = {
 	firstName: 'Kale',
 	sourceLocale: 'en-EN',
 	locales: ['fr-FR', 'de-DE'],
+  mainavatar: 'https://pbs.twimg.com/profile_images/638543851267952640/hFcxpMMY_bigger.png',
 	hslocales: [
 		 {
 			code: 'frfr',
@@ -122,6 +124,9 @@ app.get('/tweet', function (request, response) {
       }
     });
    });
+
+   var contextualizer = new Contextualizer;
+   contextualizer.contextualize(sourceText.tweetContent, userInfo.mainavatar, sourceText.imageUrl);
 
    response.redirect('/');
  });
