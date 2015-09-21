@@ -5,20 +5,19 @@
   url= "imageupload?imageurl=" + imageurl + "&timestamp=" + timestamp
 
 $.ajax({
-  url: "imageupload",
+  url: url,
   type: "GET",
   data: {
-    url: imageurl,
-    timestamp: timestamp
   },
   dataType: "script",
 }).always(function (resp) {
+  response = JSON.parse(resp)
   hsp.attachFileToMessage ({
     url: imageurl,
     name: imagename, 
     extension: imageextension, 
     timestamp: timesec, 
-    token: resp.token
+    token: response.token
   });
 });
 
