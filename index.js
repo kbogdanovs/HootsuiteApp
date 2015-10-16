@@ -23,12 +23,14 @@ var userInfo = {
   mainavatar: 'https://pbs.twimg.com/profile_images/638543851267952640/hFcxpMMY_bigger.png',
 	hslocales: [
 		 {
-			code: 'frfr',
-			language: 'French',
+      code: 'frfr',
+			smartlingCode: 'fr-FR'
+      language: 'French',
 			img: './asset/icons/France.png'
 		},
 		{
 			code: 'dede',
+      smartlingCode: 'de-DE'
 			language: 'German',
 			img: './asset/icons/Germany.png'
 		}
@@ -99,6 +101,7 @@ app.get('/tweet', function (request, response) {
   var tweetContent = sourceText.tweetContent.replace(/'/g, "\\'");
   var dbQuery = "INSERT INTO usertweets (userId, sourceLocale, sourceText, imageurl) VALUES (" + userInfo.userId + ", 'en-EN', '" + tweetContent + "', '" + sourceText.imageUrl + "')"
   console.log(dbQuery);
+  
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query(dbQuery, function(err, result) {
       done();
@@ -106,8 +109,6 @@ app.get('/tweet', function (request, response) {
        { console.error(err); response.send("Error " + err); }
       else { 
         console.log(result);
-        var contextualizer = new Contextualizer;
-        contextualizer.contextualize(tweetContent, userInfo.mainavatar, sourceText.imageUrl);
       }
     });
   });
@@ -130,9 +131,6 @@ app.get('/tweet', function (request, response) {
       }
     });
    });
-
-   var contextualizer = new Contextualizer;
-   contextualizer.contextualize(tweetContent, userInfo.mainavatar, sourceText.imageUrl);
 
    response.redirect('/');
  });
