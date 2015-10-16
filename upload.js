@@ -29,18 +29,15 @@ var command = mustache.render('curl -F "file=@{{{filepath}}};type=text/plain" -F
 
 
 child = exec(command, function(error, stdout, stderr){
-
-console.log('stdout: ' + stdout);
-
 if(error !== null)
 {
     console.log('whoops:' + error);
 }
 else
 {
-	console.log('Hooray!')
+	console.log(stdout)
 	var contextualizer = new Contextualizer;
-    setTimeout(function() {contextualizer.contextualize(text, avatar, image)}, 40000);
+    contextualizer.contextualize(text, avatar, image)
 }
 var newbody = stdout
 
