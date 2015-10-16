@@ -24,13 +24,13 @@ var userInfo = {
 	hslocales: [
 		 {
       code: 'frfr',
-			smartlingCode: 'fr-FR'
+			smartlingCode: 'fr-FR',
       language: 'French',
 			img: './asset/icons/France.png'
 		},
 		{
 			code: 'dede',
-      smartlingCode: 'de-DE'
+      smartlingCode: 'de-DE',
 			language: 'German',
 			img: './asset/icons/Germany.png'
 		}
