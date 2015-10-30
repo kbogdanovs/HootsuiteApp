@@ -26,6 +26,8 @@ var options = {
  }
 };
 
+console.log(options.qs.file)
+
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
 
