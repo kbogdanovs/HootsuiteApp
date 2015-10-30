@@ -37,6 +37,6 @@ request(options, function (error, response, body) {
   console.log(body);
   var contextualizer = new Contextualizer;
   contextualizer.contextualize(text, avatar, image);
-});
+};
 
 module.exports = Uploader;
