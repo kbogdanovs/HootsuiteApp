@@ -40,4 +40,6 @@ request(options, function (error, response, body) {
   contextualizer.contextualize(text, avatar, image);
 });
 
+};
+
 module.exports = Uploader;
