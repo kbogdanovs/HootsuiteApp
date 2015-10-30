@@ -18,15 +18,16 @@ var authLocales = ''
 for (x=0; x < locales.length; x++) {
 	authLocales += ' -F "localesToApprove=' + locales[x] + '"';
 }
-
-var options = { method: 'POST',
+var filename = file;
+var options = { 
+  method: 'POST',
   url: 'https://api.smartling.com/v1/file/upload',
   qs:
-   { file: '@' + file,
+   { file: '@' + filename,
      apiKey: 'd39e8d85-3d7b-46f5-ad79-30edf0ccf7b3',
      projectId: 'c5c7a69ed',
      fileType: 'json',
-     fileUri: file,
+     fileUri: filename,
      localesToApprove: 'fr-FR',
      localesToApprove: 'de-DE',
      callbackUrl: 'https://hsnodesmartlingsocial.herokuapp.com/translated/'
