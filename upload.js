@@ -15,7 +15,7 @@ var options = {
   method: 'POST',
   url: 'https://api.smartling.com/v1/file/upload',
   qs:
-   { file: '@' + filename + ';type=text/plain',
+   { file: '@' + filename + '.json;type=text/plain',
      apiKey: 'd39e8d85-3d7b-46f5-ad79-30edf0ccf7b3',
      projectId: 'c5c7a69ed',
      fileType: 'json',
