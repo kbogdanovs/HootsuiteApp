@@ -27,7 +27,7 @@ var options = { method: 'POST',
      fileType: 'json',
      fileUri: file,
      localesToApprove: authLocales,
-     callbackUrl: 'https://hsnodesmartlingsocial.herokuapp.com/translated/',
+     callbackUrl: 'https://hsnodesmartlingsocial.herokuapp.com/translated/'
  };
 
 request(options, function (error, response, body) {
