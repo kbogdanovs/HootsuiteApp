@@ -27,7 +27,8 @@ var options = { method: 'POST',
      projectId: 'c5c7a69ed',
      fileType: 'json',
      fileUri: file,
-     localesToApprove: authLocales,
+     localesToApprove: 'fr-FR',
+     localesToApprove: 'de-DE',
      callbackUrl: 'https://hsnodesmartlingsocial.herokuapp.com/translated/'
  }
 };
