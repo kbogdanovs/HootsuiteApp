@@ -101,7 +101,7 @@ app.get('/tweet', function (request, response) {
   var tweetContent = '$' + sourceText.tweetContent + '$';
   var dbQuery = "INSERT INTO usertweets (userId, sourceLocale, sourceText, imageurl) VALUES (" + userInfo.userId + ", 'en-EN', '" + tweetContent + "', '" + sourceText.imageUrl + "')"
   console.log(dbQuery);
-  
+  var test = 0
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query(dbQuery, function(err, result) {
       done();
