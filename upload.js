@@ -28,7 +28,8 @@ var options = { method: 'POST',
      fileUri: file,
      localesToApprove: authLocales,
      callbackUrl: 'https://hsnodesmartlingsocial.herokuapp.com/translated/'
- };
+ }
+};
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
