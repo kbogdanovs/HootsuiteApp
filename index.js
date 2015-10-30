@@ -98,7 +98,7 @@ app.post('/', function (req, res) {
 
 app.get('/tweet', function (request, response) {
   var sourceText = url.parse(request.url,true).query
-  var tweetContent = sourceText.tweetContent.replace(/'/g, "\\'");
+  var tweetContent = '$' + sourceText.tweetContent + '$';
   var dbQuery = "INSERT INTO usertweets (userId, sourceLocale, sourceText, imageurl) VALUES (" + userInfo.userId + ", 'en-EN', '" + tweetContent + "', '" + sourceText.imageUrl + "')"
   console.log(dbQuery);
   
